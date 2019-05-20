@@ -1,1 +1,0 @@
-# inteltext.github.io
