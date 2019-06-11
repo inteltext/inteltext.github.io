@@ -143,11 +143,11 @@ NextNumber) </p>
 
 <p class=MsoNoSpacing>   -- Anchor member definition</p>
 
-<p class=MsoNoSpacing>   SELECT  0  AS RecursionLevel,</p>
+<p class=MsoNoSpacing>   SELECT  0 as RecursionLevel,</p>
 
-<p class=MsoNoSpacing>           0  AS FibonacciNumber,</p>
+<p class=MsoNoSpacing>           0 as FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>           1  AS NextNumber</p>
+<p class=MsoNoSpacing>           1 as NextNumber</p>
 
 <p class=MsoNoSpacing>   UNION ALL</p>
 
@@ -167,18 +167,16 @@ NextNumber) </p>
 
 <p class=MsoNoSpacing>-- Statement that executes the CTE</p>
 
-<p class=MsoNoSpacing>SELECT  'F' + CAST( fn.RecursionLevel AS VARCHAR) AS
+<p class=MsoNoSpacing>SELECT  'F' + CAST( fn.RecursionLevel AS VARCHAR) as
 FibonacciOrdinal, </p>
 
 <p class=MsoNoSpacing>        fn.FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>        fn.NextNumber</p>
+<p class=MsoNoSpacing>        fn.NextNumber</p>
 
 <p class=MsoNoSpacing>FROM FibonacciNumbers fn; </p>
 
 <p class=MsoNoSpacing>GO</p>
-
-<p class=MsoNoSpacing>&nbsp;</p>
 
 <p class=MsoNoSpacing><b><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
