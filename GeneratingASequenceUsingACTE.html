@@ -143,25 +143,26 @@ NextNumber) </p>
 
 <p class=MsoNoSpacing>-- Anchor member definition</p>
 
-<p class=MsoNoSpacing>SELECT 0 as RecursionLevel,</p>
+<p class=MsoNoSpacing>SELECT cast(0 as BIGINT) as RecursionLevel,</p>
 
-<p class=MsoNoSpacing>0 as FibonacciNumber,</p>
+<p class=MsoNoSpacing>cast(0 as BIGINT) as FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>1 as NextNumber</p>
+<p class=MsoNoSpacing>cast(1 as BIGINT) as NextNumber</p>
 
 <p class=MsoNoSpacing>UNION ALL</p>
 
 <p class=MsoNoSpacing>-- Recursive member definition</p>
 
-<p class=MsoNoSpacing>SELECT a.RecursionLevel + 1 as RecursionLevel,</p>
+<p class=MsoNoSpacing>SELECT cast(a.RecursionLevel + 1 as BIGINT) as
+RecursionLevel,</p>
 
-<p class=MsoNoSpacing>a.NextNumber as FibonacciNumber,</p>
+<p class=MsoNoSpacing>cast(a.NextNumber as BIGINT) as FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>a.FibonacciNumber + a.NextNumber as NextNumber</p>
+<p class=MsoNoSpacing>cast(a.FibonacciNumber + a.NextNumber as BIGINT) as NextNumber</p>
 
 <p class=MsoNoSpacing>FROM FibonacciNumbers a</p>
 
-<p class=MsoNoSpacing>WHERE a.RecursionLevel &lt; 100</p>
+<p class=MsoNoSpacing>WHERE a.RecursionLevel &lt; 91</p>
 
 <p class=MsoNoSpacing>)</p>
 
