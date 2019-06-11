@@ -1,0 +1,278 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+address
+	{mso-style-link:"HTML Address Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+span.HTMLAddressChar
+	{mso-style-name:"HTML Address Char";
+	mso-style-link:"HTML Address";
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";}
+span.code-comment
+	{mso-style-name:code-comment;}
+span.code-keyword
+	{mso-style-name:code-keyword;}
+span.code-digit
+	{mso-style-name:code-digit;}
+span.code-string
+	{mso-style-name:code-string;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Century Gothic",sans-serif'>Generating a sequence using a CTE
+(Common Table Expression)</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Century Gothic",sans-serif'>Fibonacci Numbers</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.5pt;font-family:"Segoe UI",sans-serif;color:#111111'>Fibonacci
+numbers are named after an Italian mathematician&nbsp;</span><a
+href="http://en.wikipedia.org/wiki/Fibonacci"><span style='font-size:10.5pt;
+font-family:"Segoe UI",sans-serif;color:purple'>Leonardo Fibonacci</span></a><span
+style='font-size:10.5pt;font-family:"Segoe UI",sans-serif;color:#111111'>. The
+Fibonacci number sequence starts typically with numbers 0 and 1 and the new
+number in the sequence is defined by adding two previous numbers. So as a
+formula</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center;line-height:normal;background:white'><i><span
+style='font-size:10.5pt;font-family:"Segoe UI",sans-serif;color:#111111'>F<sub>n&nbsp;</sub>=
+F<sub>n-1&nbsp;</sub>+ F<sub>n-2</sub></span></i></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.5pt;line-height:107%;font-family:
+"Segoe UI",sans-serif;color:#111111;background:white'>The sequence itself is
+recursive. A CTE can be used to generate a recursive query thus also to
+generate a desired number of rows.</span></p>
+
+<p class=MsoNormal><span style='font-size:10.5pt;line-height:107%;font-family:
+"Segoe UI",sans-serif;color:#111111;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.5pt;line-height:107%;font-family:
+"Segoe UI",sans-serif;color:#111111;background:white'>The SQL is relatively
+simple. The recursive CTE is created and populated. This is followed by the
+SELECT statement to read data from the recursive table.</span></p>
+
+<div style='border:solid #FBEDBB 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt;
+background:#FBEDBB'>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><i><span style='font-size:
+10.0pt;font-family:Consolas;color:green'>-----------------------------------------------------------------</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><i><span style='font-size:
+10.0pt;font-family:Consolas;color:green'>-- Numbers F0 through F10 in Fibonacci
+sequence</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><i><span style='font-size:
+10.0pt;font-family:Consolas;color:green'>-----------------------------------------------------------------</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:blue'>WITH</span><span style='font-size:10.0pt;
+font-family:Consolas;color:black'> FibonacciNumbers (RecursionLevel,
+FibonacciNumber, NextNumber)&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:blue'>AS</span><span style='font-size:10.0pt;
+font-family:Consolas;color:black'> (</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp;</span><i><span
+style='font-size:10.0pt;font-family:Consolas;color:green'>-- Anchor member
+definition</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp;SELECT &nbsp;0 &nbsp;AS
+RecursionLevel,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0
+&nbsp;AS FibonacciNumber,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1
+&nbsp;AS NextNumber</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp;UNION </span><span
+style='font-size:10.0pt;font-family:Consolas;color:blue'>ALL</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp;</span><i><span
+style='font-size:10.0pt;font-family:Consolas;color:green'>-- Recursive member
+definition</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp;SELECT &nbsp;a.RecursionLevel + </span><span
+style='font-size:10.0pt;font-family:Consolas;color:navy'>1</span><span
+style='font-size:10.0pt;font-family:Consolas;color:black'> &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span style='font-size:10.0pt;font-family:Consolas;
+color:blue'>AS</span><span style='font-size:10.0pt;font-family:Consolas;
+color:black'> RecursionLevel,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;a.NextNumber &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; </span><span style='font-size:10.0pt;font-family:Consolas;
+color:blue'>AS</span><span style='font-size:10.0pt;font-family:Consolas;
+color:black'> FibonacciNumber,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;a.FibonacciNumber + a.NextNumber </span><span style='font-size:10.0pt;
+font-family:Consolas;color:blue'>AS</span><span style='font-size:10.0pt;
+font-family:Consolas;color:black'> NextNumber</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp;FROM FibonacciNumbers a</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp;WHERE a.RecursionLevel &lt; </span><span
+style='font-size:10.0pt;font-family:Consolas;color:navy'>10</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><i><span style='font-size:
+10.0pt;font-family:Consolas;color:green'>-- Statement that executes the CTE</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:blue'>SELECT</span><span style='font-size:10.0pt;
+font-family:Consolas;color:black'> &nbsp;</span><span style='font-size:10.0pt;
+font-family:Consolas;color:purple'>'F'</span><span style='font-size:10.0pt;
+font-family:Consolas;color:black'> + CAST( fn.RecursionLevel </span><span
+style='font-size:10.0pt;font-family:Consolas;color:blue'>AS</span><span
+style='font-size:10.0pt;font-family:Consolas;color:black'> </span><span
+style='font-size:10.0pt;font-family:Consolas;color:blue'>VARCHAR</span><span
+style='font-size:10.0pt;font-family:Consolas;color:black'>) </span><span
+style='font-size:10.0pt;font-family:Consolas;color:blue'>AS</span><span
+style='font-size:10.0pt;font-family:Consolas;color:black'>
+FibonacciOrdinal,&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp; &nbsp; &nbsp;
+fn.FibonacciNumber,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:black'>&nbsp; &nbsp; &nbsp; &nbsp; fn.NextNumber</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:blue'>FROM</span><span style='font-size:10.0pt;
+font-family:Consolas;color:black'> FibonacciNumbers fn;&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;background:#FBEDBB;border:none;padding:0cm'><span style='font-size:10.0pt;
+font-family:Consolas;color:blue'>GO</span></p>
+
+</div>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>
