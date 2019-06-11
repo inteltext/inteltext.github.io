@@ -137,54 +137,50 @@ SELECT statement to read data from the recursive table.</span></p>
 <p class=MsoNoSpacing>------------------------------------------------------------------</p>
 
 <p class=MsoNoSpacing>WITH FibonacciNumbers (RecursionLevel, FibonacciNumber,
-NextNumber)&nbsp;</p>
+NextNumber) </p>
 
 <p class=MsoNoSpacing>AS (</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp;-- Anchor member definition</p>
+<p class=MsoNoSpacing>   -- Anchor member definition</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp;SELECT &nbsp;0 &nbsp;AS RecursionLevel,</p>
+<p class=MsoNoSpacing>   SELECT  0  AS RecursionLevel,</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;       0
-&nbsp;AS FibonacciNumber,</p>
+<p class=MsoNoSpacing>           0  AS FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;       1
-&nbsp;AS NextNumber</p>
+<p class=MsoNoSpacing>           1  AS NextNumber</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp;UNION ALL</p>
+<p class=MsoNoSpacing>   UNION ALL</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp;-- Recursive member definition</p>
+<p class=MsoNoSpacing>   -- Recursive member definition</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp;SELECT &nbsp;a.RecursionLevel + 1 as
-RecursionLevel,</p>
+<p class=MsoNoSpacing>   SELECT  a.RecursionLevel + 1 as RecursionLevel,</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;a.NextNumber  as
-FibonacciNumber,</p>
+<p class=MsoNoSpacing>           a.NextNumber as FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp;a.FibonacciNumber + a.NextNumber AS NextNumber</p>
+<p class=MsoNoSpacing>           a.FibonacciNumber + a.NextNumber as NextNumber</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp;FROM FibonacciNumbers a</p>
+<p class=MsoNoSpacing>   FROM FibonacciNumbers a</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp;WHERE a.RecursionLevel &lt; 100</p>
+<p class=MsoNoSpacing>   WHERE a.RecursionLevel &lt; 100</p>
 
 <p class=MsoNoSpacing>)</p>
 
 <p class=MsoNoSpacing>-- Statement that executes the CTE</p>
 
-<p class=MsoNoSpacing>SELECT &nbsp;'F' + CAST( fn.RecursionLevel AS VARCHAR) AS
-FibonacciOrdinal,&nbsp;</p>
+<p class=MsoNoSpacing>SELECT  'F' + CAST( fn.RecursionLevel AS VARCHAR) AS
+FibonacciOrdinal, </p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp; &nbsp; &nbsp; fn.FibonacciNumber,</p>
+<p class=MsoNoSpacing>        fn.FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>&nbsp; &nbsp; &nbsp; &nbsp; fn.NextNumber</p>
+<p class=MsoNoSpacing>        fn.NextNumber</p>
 
-<p class=MsoNoSpacing>FROM FibonacciNumbers fn;&nbsp;</p>
+<p class=MsoNoSpacing>FROM FibonacciNumbers fn; </p>
 
 <p class=MsoNoSpacing>GO</p>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
-font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
 <p class=MsoNormal><span style='color:#111111;background:white'><a
 href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
