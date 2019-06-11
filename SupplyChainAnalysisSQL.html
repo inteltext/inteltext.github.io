@@ -12,20 +12,47 @@
 @font-face
 	{font-family:Calibri;
 	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
  /* Style Definitions */
  p.MsoNormal, li.MsoNormal, div.MsoNormal
 	{margin-top:0cm;
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:107%;
+	line-height:105%;
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:105%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
 .MsoChpDefault
-	{font-family:"Calibri",sans-serif;}
-.MsoPapDefault
-	{margin-bottom:8.0pt;
-	line-height:107%;}
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
 @page WordSection1
 	{size:595.3pt 841.9pt;
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
@@ -36,30 +63,33 @@ div.WordSection1
 
 </head>
 
-<body lang=EN-GB>
+<body lang=EN-GB link="#0563C1" vlink="#954F72">
 
 <div class=WordSection1>
 
-<p class=MsoNormal>Supply Chain Analysis</p>
-
-<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
+font-family:"Century Gothic",sans-serif'>Supply Chain Analysis</span></b></p>
 
 <p class=MsoNormal>This analysis determines the path in the supply chain that
-has the ‘costliest’ total link in the chain. Take for example a hierarchy of inputs
-that make up the chain as illustrated below. The relative costs as a percentage
-of the total costs of each node are shown as percentages.</p>
+has the ‘costliest’ total link in the chain. Take for example a hierarchy of
+inputs that make up the chain as illustrated below. The relative costs as a
+percentage of the total costs of each node are shown as percentages.</p>
 
 <p class=MsoNormal>Hence the objective is to identify the dependent nodes that
-together make up the costliest chain. From this analysis the company can focus
-on those nodes that contribute the greatest cost to the final production, and
-attempt to reduce them. Periodically the analysis needs to be reprocessed with
-new data to identify the next path that makes up the costliest chain.</p>
+together make up the <b>costliest</b> chain. From this analysis the company can
+focus on those nodes that contribute the greatest cost to the final production,
+and attempt to reduce them. Periodically the analysis needs to be reprocessed
+with new data to identify the next path that makes up the costliest chain.</p>
+
+<p class=MsoNormal>&nbsp;The solution that has been applied here has been done
+using SQL, which fortunately has CTE’s (Common Table Expressions) that allow
+for recursive selection of hierarchical data from a database table.</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
-<p class=MsoNormal>The solution that has been applied here has been done using
-SQL, which fortunately has CTE’s (Common Table Expressions) that allow for
-recursive selection of hierarchical data from a database table.</p>
+<p class=MsoNormal><span style='color:#2F5597'><a
+href="http://inteltext.github.io/Index.html"><span style='color:#044A91'>Return
+to Index Page</span></a></span></p>
 
 </div>
 
