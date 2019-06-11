@@ -130,38 +130,32 @@ generate a desired number of rows.</span></p>
 simple. The recursive CTE is created and populated. This is followed by the
 SELECT statement to read data from the recursive table.</span></p>
 
-<p class=MsoNoSpacing>------------------------------------------------------------------</p>
-
-<p class=MsoNoSpacing>-- Numbers F0 through F10 in Fibonacci sequence</p>
-
-<p class=MsoNoSpacing>------------------------------------------------------------------</p>
-
 <p class=MsoNoSpacing>WITH FibonacciNumbers (RecursionLevel, FibonacciNumber,
 NextNumber) </p>
 
 <p class=MsoNoSpacing>AS (</p>
 
-<p class=MsoNoSpacing>   -- Anchor member definition</p>
+<p class=MsoNoSpacing>-- Anchor member definition</p>
 
-<p class=MsoNoSpacing>   SELECT  0 as RecursionLevel,</p>
+<p class=MsoNoSpacing>SELECT  0 as RecursionLevel,</p>
 
-<p class=MsoNoSpacing>           0 as FibonacciNumber,</p>
+<p class=MsoNoSpacing>0 as FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>           1 as NextNumber</p>
+<p class=MsoNoSpacing>1 as NextNumber</p>
 
-<p class=MsoNoSpacing>   UNION ALL</p>
+<p class=MsoNoSpacing>UNION ALL</p>
 
-<p class=MsoNoSpacing>   -- Recursive member definition</p>
+<p class=MsoNoSpacing>-- Recursive member definition</p>
 
-<p class=MsoNoSpacing>   SELECT  a.RecursionLevel + 1 as RecursionLevel,</p>
+<p class=MsoNoSpacing>SELECT  a.RecursionLevel + 1 as RecursionLevel,</p>
 
-<p class=MsoNoSpacing>           a.NextNumber as FibonacciNumber,</p>
+<p class=MsoNoSpacing>a.NextNumber as FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>           a.FibonacciNumber + a.NextNumber as NextNumber</p>
+<p class=MsoNoSpacing>a.FibonacciNumber + a.NextNumber as NextNumber</p>
 
-<p class=MsoNoSpacing>   FROM FibonacciNumbers a</p>
+<p class=MsoNoSpacing>FROM FibonacciNumbers a</p>
 
-<p class=MsoNoSpacing>   WHERE a.RecursionLevel &lt; 100</p>
+<p class=MsoNoSpacing>WHERE a.RecursionLevel &lt; 100</p>
 
 <p class=MsoNoSpacing>)</p>
 
@@ -170,13 +164,15 @@ NextNumber) </p>
 <p class=MsoNoSpacing>SELECT  'F' + CAST( fn.RecursionLevel AS VARCHAR) as
 FibonacciOrdinal, </p>
 
-<p class=MsoNoSpacing>        fn.FibonacciNumber,</p>
+<p class=MsoNoSpacing>fn.FibonacciNumber,</p>
 
-<p class=MsoNoSpacing>        fn.NextNumber</p>
+<p class=MsoNoSpacing>fn.NextNumber</p>
 
 <p class=MsoNoSpacing>FROM FibonacciNumbers fn; </p>
 
 <p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
 
 <p class=MsoNoSpacing><b><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
