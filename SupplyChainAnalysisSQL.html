@@ -33,6 +33,11 @@ a:link, span.MsoHyperlink
 a:visited, span.MsoHyperlinkFollowed
 	{color:#954F72;
 	text-decoration:underline;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
 p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
 	{margin-top:0cm;
 	margin-right:0cm;
@@ -131,7 +136,7 @@ recursive selection of hierarchical data from a database table.</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
-<p class=MsoNormal>Example  :</p>
+<p class=MsoNormal><b>Example:</b></p>
 
 <p class=MsoNormal>Company A0, owned by the shareholders A has several downstream
 suppliers in its supplier chain. The first level below A0 is the four suppliers
@@ -141,10 +146,10 @@ costs of B0 through B3. Each of the suppliers B0 through B3 has its own
 supplier chain e.g. B0 uses suppliers C0 and C1; B1 uses suppliers C2, C3, C4,
 C5 etc. Company A0 is dependant on all of the suppliers in the hierarchy and
 needs to determine which chain contributes the greatest costs to its final
-product. With this knowledge it can then seek to replace the most costly chain
-with a less costly chain thereby improving profitability.</p>
+product. With this knowledge it can then seek to replace the <b>costliest</b>
+chain with a less costly chain thereby improving profitability.</p>
 
-<p class=MsoNormal>The matrix of suppliers is shown in the table below  :</p>
+<p class=MsoNormal>The matrix of suppliers is shown in the table below :</p>
 
 <p class=MsoNormal><b>&nbsp;</b></p>
 
@@ -506,713 +511,197 @@ with a less costly chain thereby improving profitability.</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>The expected result is : </p>
+<p class=MsoNormal>The expected result is: </p>
 
 <p class=MsoNormal>A0-&gt;B3-&gt;C9</p>
 
+<p class=MsoNormal>&nbsp;</p>
+
 <p class=MsoNormal><b>The SQL Solution.</b></p>
 
-<p class=MsoNormal>This solution requires the table that holds the above data :</p>
+<p class=MsoNormal>This solution requires the table that holds the above data:</p>
 
-<p class=MsoListParagraph style='margin-bottom:0cm;margin-bottom:.0001pt;
-text-indent:-18.0pt;line-height:normal;text-autospace:none'><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>a)<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>CREATE</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>TABLE</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> [dbo]</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>.</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>[SupplyChainSuppliedByTable]</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>(</span></p>
+<p class=MsoNoSpacing>CREATE TABLE [dbo].[SupplyChainSuppliedByTable](</p>
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       [PrimarySupplierDescription] [varchar]</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>(</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>50</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>)</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>NOT</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>NULL,</span></p>
+<p class=MsoNoSpacing>[PrimarySupplierDescription] [varchar](50) NOT NULL,</p>
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       [PrimarySupplierCode] [varchar]</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>(</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>10</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>)</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>NOT</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>NULL,</span></p>
+<p class=MsoNoSpacing>[PrimarySupplierCode] [varchar](10) NOT NULL,</p>
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       [SupplierByCode] [varchar]</span><span style='font-size:
-9.5pt;font-family:Consolas;color:gray'>(</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>10</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>)</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>NULL,</span></p>
+<p class=MsoNoSpacing>[SupplierByCode] [varchar](10) NULL,</p>
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       [Percentage] [numeric]</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>(</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>12</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>,</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> 2</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>)</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>NOT</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>NULL</span></p>
+<p class=MsoNoSpacing>[Percentage] [numeric](12, 2) NOT NULL</p>
+
+<p class=MsoNoSpacing>) ON [PRIMARY]</p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNormal><span style='color:black'>And a second tale that is
+populated by the script with the results of the CTE recursion:</span></p>
+
+<p class=MsoNoSpacing>CREATE TABLE [dbo].[SupplyChainLevels](</p>
+
+<p class=MsoNoSpacing>[PrimarySupplierDescription] [varchar](50) NOT NULL,</p>
+
+<p class=MsoNoSpacing>[PrimarySupplierCode] [varchar](10) NOT NULL,</p>
+
+<p class=MsoNoSpacing>[SupplierByCode] [varchar](10) NOT NULL,</p>
+
+<p class=MsoNoSpacing>[Percentage] [numeric](12, 2) NOT NULL,</p>
+
+<p class=MsoNoSpacing>[UpchainSupplier] [int] NULL</p>
+
+<p class=MsoNoSpacing>) ON [PRIMARY]</p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing><span style='color:blue'>&nbsp;</span></p>
 
 <p class=MsoNormal><span style='font-size:9.5pt;line-height:105%;font-family:
-Consolas;color:gray'>)</span><span style='font-size:9.5pt;line-height:105%;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-line-height:105%;font-family:Consolas;color:blue'>ON</span><span
-style='font-size:9.5pt;line-height:105%;font-family:Consolas;color:black'>
-[PRIMARY]</span></p>
-
-<p class=MsoNormal><span style='font-size:9.5pt;line-height:105%;font-family:
-Consolas;color:black'>And a second tale that is populated by the script with
-the results of the CTE recursion :</span></p>
-
-<p class=MsoListParagraph style='margin-bottom:0cm;margin-bottom:.0001pt;
-text-indent:-18.0pt;line-height:normal;text-autospace:none'><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>b)<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>CREATE</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>TABLE</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> [dbo]</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>.</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>[SupplyChainLevels]</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>(</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       [PrimarySupplierDescription] [varchar]</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>(</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>50</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>)</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>NOT</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>NULL,</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       [PrimarySupplierCode] [varchar]</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>(</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>10</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>)</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>NOT</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>NULL,</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       [SupplierByCode] [varchar]</span><span style='font-size:
-9.5pt;font-family:Consolas;color:gray'>(</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>10</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>)</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>NOT</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>NULL,</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       [Percentage] [numeric]</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>(</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>12</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>,</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> 2</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>)</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>NOT</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>NULL,</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       [UpchainSupplier] [int] </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>NULL</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>)</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>ON</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [PRIMARY]</span></p>
-
-<p class=MsoNormal><span style='font-size:9.5pt;line-height:105%;font-family:
-Consolas;color:blue'>GO</span></p>
-
-<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-size:
-9.5pt;line-height:105%;font-family:Consolas;color:blue'>c)<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='font-size:9.5pt;line-height:105%;font-family:Consolas'>A cursor has been
-used to traverse the SupplyChainLevels table to obtain the final output.</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>truncate</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>table</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [dbo]</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>[SupplyChainLevels]</span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>with</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> SupplyChain_CTE </span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>as</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>(</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>Select</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> a</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>PrimarySupplierDescription</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>,</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> a</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>.</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>PrimarySupplierCode</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> a</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>.</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>SupplierByCode</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> a</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>.</span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>Percentage</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> 0 </span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>as</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> UpchainSupplier</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>from</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [dbo]</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>[SupplyChainSuppliedByTable] </span><span style='font-size:9.5pt;
-font-family:Consolas;color:blue'>as</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> a</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>where</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> a</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>PrimarySupplierCode </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>=</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:red'>'A'</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>UNION</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>ALL</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>Select</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> b</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>PrimarySupplierDescription</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>,</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> b</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>.</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>PrimarySupplierCode</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> b</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>.</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>SupplierByCode</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> b</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>.</span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>Percentage</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> UpchainSupplier </span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>+</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> 1 </span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>from</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [SupplyChainSuppliedByTable] </span><span style='font-size:9.5pt;
-font-family:Consolas;color:blue'>as</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> b</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>inner</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>join</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> SupplyChain_CTE </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>as</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> c</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>on</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> b</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>PrimarySupplierCode </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>=</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> c</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>.</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>SupplierByCode</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>where</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> b</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>PrimarySupplierCode </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>&lt;&gt;</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:red'>'A'</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>)</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>insert</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>into</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [dbo]</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>[SupplyChainLevels] </span><span style='font-size:9.5pt;
-font-family:Consolas;color:blue'>Select</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> e</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>.</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>PrimarySupplierDescription</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> e</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>.</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>PrimarySupplierCode</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> e</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>.</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'>SupplierByCode</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> e</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>.</span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>Percentage</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> </span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>as</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> MaxPercentage</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>,</span><span
-style='font-size:9.5pt;font-family:Consolas;color:black'> UpchainSupplier</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>from</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> SupplyChain_CTE </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>as</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> e</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>select</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>*</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>from</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [dbo]</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>[SupplyChainLevels]</span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>declare</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @LevelCount </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>int</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>select</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @LevelCount </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>=</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:fuchsia'>max</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>(</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>[UpchainSupplier]</span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>)</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>from</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [dbo]</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>[SupplyChainLevels]</span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>declare</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @PrimarySupplierCode </span><span style='font-size:9.5pt;
-font-family:Consolas;color:blue'>varchar</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>(</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>10</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>);</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>declare</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @SupplierByCode </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>varchar</span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>(</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>10</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>);</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>declare</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @Percentage </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>numeric</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>(</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>12</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>,</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> 2</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>);</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>declare</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @UpchainSupplier </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>int</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>declare</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @Level </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>int</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>=</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> 1</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>declare</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @SupplierByCodeNext </span><span style='font-size:9.5pt;
-font-family:Consolas;color:blue'>varchar</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>(</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'>10</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>);</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>declare</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @SupplyChain </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>varchar</span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>(</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>1024</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>)</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>=</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:red'>''</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>DECLARE</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> db_cursor </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>CURSOR</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>FOR</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>SELECT</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>distinct</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [PrimarySupplierCode]</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>FROM</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> dbo</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>[SupplyChainLevels]</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>WHERE</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [PrimarySupplierCode] </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>&lt;&gt;</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> </span><span style='font-size:9.5pt;
-font-family:Consolas;color:red'>'A'</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>OPEN</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> db_cursor  </span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>FETCH</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>NEXT</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>FROM</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> db_cursor </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>INTO</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @PrimarySupplierCode   </span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>set</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @SupplierByCodeNext </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>=</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> @PrimarySupplierCode</span><span
-style='font-size:9.5pt;font-family:Consolas;color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>set</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @SupplyChain </span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>=</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @PrimarySupplierCode</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>WHILE</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:fuchsia'>@@FETCH_STATUS</span><span style='font-size:9.5pt;font-family:
-Consolas;color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>=</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> 0  </span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>BEGIN</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>select</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @SupplierByCodeNext </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>=</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> SupplierByCode </span><span
-style='font-size:9.5pt;font-family:Consolas;color:blue'>from</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>(</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>select</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>top</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> 1 SupplierByCode</span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>,</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:fuchsia'>max</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>(</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>[Percentage]</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>)</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>as</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> maxpercentage</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>       </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>from</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> dbo</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>.</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>[SupplyChainLevels]</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>           </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>where</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> [PrimarySupplierCode] </span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>=</span><span style='font-size:9.5pt;
-font-family:Consolas;color:black'> @SupplierByCodeNext</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>                  </span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>and</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> UpchainSupplier </span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>=</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @Level</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>              </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>group</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>by</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> SupplierByCode</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>               </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>order</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>by</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> maxpercentage </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>desc</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>)</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>as</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> A</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>        </span><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>set</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @Level </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>=</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @Level </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>+</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> 1</span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>              </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>set</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @SupplyChain </span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>=</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @SupplyChain </span><span style='font-size:9.5pt;font-family:
-Consolas;color:gray'>+</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:red'>', '</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>+</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @SupplierByCodeNext</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>              </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>select</span><span style='font-size:9.5pt;font-family:
-Consolas;color:black'> @SupplyChain</span><span style='font-size:9.5pt;
-font-family:Consolas;color:gray'>;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>              </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>if</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @Level </span><span style='font-size:9.5pt;font-family:Consolas;
-color:gray'>&gt;</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> @LevelCount</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>               </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>begin</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>                 </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>break</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>                 </span><span style='font-size:9.5pt;font-family:
-Consolas;color:blue'>end</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>END</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> </span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:black'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
-color:blue'>CLOSE</span><span style='font-size:9.5pt;font-family:Consolas;
-color:black'> db_cursor  </span></p>
-
-<p class=MsoNormal><span style='font-size:9.5pt;line-height:105%;font-family:
-Consolas;color:blue'>DEALLOCATE</span><span style='font-size:9.5pt;line-height:
-105%;font-family:Consolas;color:black'> db_cursor</span></p>
-
-<p class=MsoNormal>&nbsp;</p>
+Consolas'>a)     A cursor has been used to traverse the SupplyChainLevels table
+to obtain the final output.</span></p>
+
+<p class=MsoNoSpacing>truncate table [dbo].[SupplyChainLevels];</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>with SupplyChain_CTE </p>
+
+<p class=MsoNoSpacing>as</p>
+
+<p class=MsoNoSpacing>(</p>
+
+<p class=MsoNoSpacing>Select a.PrimarySupplierDescription,
+a.PrimarySupplierCode, a.SupplierByCode, a.Percentage, 0 as UpchainSupplier</p>
+
+<p class=MsoNoSpacing>from [dbo].[SupplyChainSuppliedByTable] as a</p>
+
+<p class=MsoNoSpacing>where a.PrimarySupplierCode = 'A'</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>UNION ALL</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Select b.PrimarySupplierDescription,
+b.PrimarySupplierCode, b.SupplierByCode, b.Percentage, UpchainSupplier + 1 </p>
+
+<p class=MsoNoSpacing>from [SupplyChainSuppliedByTable] as b</p>
+
+<p class=MsoNoSpacing>inner join SupplyChain_CTE as c</p>
+
+<p class=MsoNoSpacing>on b.PrimarySupplierCode = c.SupplierByCode</p>
+
+<p class=MsoNoSpacing>where b.PrimarySupplierCode &lt;&gt; 'A'</p>
+
+<p class=MsoNoSpacing>)</p>
+
+<p class=MsoNoSpacing>insert into [dbo].[SupplyChainLevels] Select
+e.PrimarySupplierDescription, e.PrimarySupplierCode, e.SupplierByCode,
+e.Percentage as MaxPercentage, UpchainSupplier</p>
+
+<p class=MsoNoSpacing>from SupplyChain_CTE as e;</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>select * from [dbo].[SupplyChainLevels];</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>declare @LevelCount int;</p>
+
+<p class=MsoNoSpacing>select @LevelCount = max([UpchainSupplier]) from
+[dbo].[SupplyChainLevels];</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>declare @PrimarySupplierCode varchar(10);</p>
+
+<p class=MsoNoSpacing>declare @SupplierByCode varchar(10);</p>
+
+<p class=MsoNoSpacing>declare @Percentage numeric(12, 2);</p>
+
+<p class=MsoNoSpacing>declare @UpchainSupplier int;</p>
+
+<p class=MsoNoSpacing>declare @Level int = 1;</p>
+
+<p class=MsoNoSpacing>declare @SupplierByCodeNext varchar(10);</p>
+
+<p class=MsoNoSpacing>declare @SupplyChain varchar(1024) = '';</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>DECLARE db_cursor CURSOR FOR </p>
+
+<p class=MsoNoSpacing>SELECT distinct [PrimarySupplierCode]</p>
+
+<p class=MsoNoSpacing>FROM dbo.[SupplyChainLevels]</p>
+
+<p class=MsoNoSpacing>WHERE [PrimarySupplierCode] &lt;&gt; 'A'</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>OPEN db_cursor  </p>
+
+<p class=MsoNoSpacing>FETCH NEXT FROM db_cursor INTO @PrimarySupplierCode   </p>
+
+<p class=MsoNoSpacing>set @SupplierByCodeNext = @PrimarySupplierCode;</p>
+
+<p class=MsoNoSpacing>set @SupplyChain = @PrimarySupplierCode;</p>
+
+<p class=MsoNoSpacing>WHILE @@FETCH_STATUS = 0  </p>
+
+<p class=MsoNoSpacing>BEGIN </p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>select @SupplierByCodeNext = SupplierByCode from</p>
+
+<p class=MsoNoSpacing>(</p>
+
+<p class=MsoNoSpacing>select top 1 SupplierByCode, max([Percentage]) as
+maxpercentage</p>
+
+<p class=MsoNoSpacing>from dbo.[SupplyChainLevels]</p>
+
+<p class=MsoNoSpacing>where [PrimarySupplierCode] = @SupplierByCodeNext</p>
+
+<p class=MsoNoSpacing>and UpchainSupplier = @Level</p>
+
+<p class=MsoNoSpacing>group by SupplierByCode</p>
+
+<p class=MsoNoSpacing>order by maxpercentage desc</p>
+
+<p class=MsoNoSpacing>) as A</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>set @Level = @Level + 1;</p>
+
+<p class=MsoNoSpacing>set @SupplyChain = @SupplyChain + ', ' +
+@SupplierByCodeNext;</p>
+
+<p class=MsoNoSpacing>select @SupplyChain;</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>if @Level &gt; @LevelCount</p>
+
+<p class=MsoNoSpacing>begin</p>
+
+<p class=MsoNoSpacing>break</p>
+
+<p class=MsoNoSpacing>end</p>
+
+<p class=MsoNoSpacing>END </p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>CLOSE db_cursor  </p>
+
+<p class=MsoNoSpacing>DEALLOCATE db_cursor</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
