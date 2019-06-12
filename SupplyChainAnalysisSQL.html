@@ -15,9 +15,6 @@
 @font-face
 	{font-family:"Century Gothic";
 	panose-1:2 11 5 2 2 2 2 2 2 4;}
-@font-face
-	{font-family:Consolas;
-	panose-1:2 11 6 9 2 2 4 3 2 4;}
  /* Style Definitions */
  p.MsoNormal, li.MsoNormal, div.MsoNormal
 	{margin-top:0cm;
@@ -558,9 +555,8 @@ populated by the script with the results of the CTE recursion:</span></p>
 
 <p class=MsoNoSpacing><span style='color:blue'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:9.5pt;line-height:105%;font-family:
-Consolas'>a)     A cursor has been used to traverse the SupplyChainLevels table
-to obtain the final output.</span></p>
+<p class=MsoNormal>A cursor has been used to traverse the SupplyChainLevels
+table to obtain the final output.</p>
 
 <p class=MsoNoSpacing>truncate table [dbo].[SupplyChainLevels];</p>
 
@@ -643,15 +639,15 @@ e.Percentage as MaxPercentage, UpchainSupplier</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
-<p class=MsoNoSpacing>OPEN db_cursor  </p>
+<p class=MsoNoSpacing>OPEN db_cursor</p>
 
-<p class=MsoNoSpacing>FETCH NEXT FROM db_cursor INTO @PrimarySupplierCode   </p>
+<p class=MsoNoSpacing>FETCH NEXT FROM db_cursor INTO @PrimarySupplierCode</p>
 
 <p class=MsoNoSpacing>set @SupplierByCodeNext = @PrimarySupplierCode;</p>
 
 <p class=MsoNoSpacing>set @SupplyChain = @PrimarySupplierCode;</p>
 
-<p class=MsoNoSpacing>WHILE @@FETCH_STATUS = 0  </p>
+<p class=MsoNoSpacing>WHILE @@FETCH_STATUS = 0</p>
 
 <p class=MsoNoSpacing>BEGIN </p>
 
@@ -699,7 +695,7 @@ maxpercentage</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
-<p class=MsoNoSpacing>CLOSE db_cursor  </p>
+<p class=MsoNoSpacing>CLOSE db_cursor</p>
 
 <p class=MsoNoSpacing>DEALLOCATE db_cursor</p>
 
