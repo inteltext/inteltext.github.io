@@ -92,6 +92,558 @@ div.WordSection1
 <p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
 font-family:"Century Gothic",sans-serif'>Shredding XML Data</span></b></p>
 
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b>Example 1 of shredding XML data</b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>CREATE TABLE #Person </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>(</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>Id INT IDENTITY(1,1), </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>First_Name NVARCHAR(100), </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>Last_Name NVARCHAR(100), </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>Nationality NVARCHAR(100),</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>Two_Char_Nationality VARCHAR(2),</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>InsertedAt DATETIME </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>-- Xml data structure </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>DECLARE @data XML = '&lt;Person&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&lt;FirstName&gt;John&lt;/FirstName&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&lt;Surname&gt;Doe&lt;/Surname&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&lt;Nationality&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&lt;Fullname&gt;Australia&lt;/Fullname&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&lt;IsoAlpha2&gt;AU&lt;/IsoAlpha2&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&lt;/Nationality&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&lt;/Person&gt;';</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>                                </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>-- SQL to Shred using path</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>INSERT INTO #Person</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>(</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>First_Name,</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>Last_Name,</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>Nationality,</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>Two_Char_Nationality,</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>InsertedAt</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>SELECT</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>tab.p.value('FirstName[1]', 'NVARCHAR(100)'),</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>tab.p.value('Surname[1]', 'NVARCHAR(100)'),</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>tab.p.value('(Nationality/Fullname)[1]', 'NVARCHAR(100)'),</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>tab.p.value('(Nationality/IsoAlpha2)[1]', 'VARCHAR(2)'),</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>GETDATE()</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>FROM</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>@data.nodes('/Person') tab(p);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNoSpacing>select * from #Person;</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>Example 2 of shredding XML Data using path – Two different
+methods. Note Method 2, using cross apply, performs far better </b></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>DECLARE @xml XML</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>SET @xml=N'&lt;Root&gt;</p>
+
+<p class=MsoNoSpacing>                &lt;orderHRD ID=&quot;101&quot;&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;custID&gt;501&lt;/custID&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;orderDTL
+ID=&quot;201&quot;&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;prodID&gt;1&lt;/prodID&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;qty&gt;5&lt;/qty&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;cost&gt;25.12&lt;/cost&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;/orderDTL&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;orderDTL
+ID=&quot;202&quot;&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;prodID&gt;2&lt;/prodID&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;qty&gt;3&lt;/qty&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;cost&gt;30.00&lt;/cost&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;/orderDTL&gt;</p>
+
+<p class=MsoNoSpacing>                &lt;/orderHRD&gt;</p>
+
+<p class=MsoNoSpacing>                &lt;orderHRD ID=&quot;102&quot;&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;custID&gt;502&lt;/custID&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;orderDTL
+ID=&quot;203&quot;&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;prodID&gt;11&lt;/prodID&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;qty&gt;12&lt;/qty&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;cost&gt;140.78&lt;/cost&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;/orderDTL&gt;</p>
+
+<p class=MsoNoSpacing>                &lt;/orderHRD&gt;</p>
+
+<p class=MsoNoSpacing>                &lt;orderHRD ID=&quot;103&quot;&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;custID&gt;503&lt;/custID&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;orderDTL
+ID=&quot;204&quot;&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;prodID&gt;6&lt;/prodID&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;qty&gt;8&lt;/qty&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;cost&gt;60.35&lt;/cost&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;/orderDTL&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;orderDTL
+ID=&quot;205&quot;&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;prodID&gt;9&lt;/prodID&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;qty&gt;2&lt;/qty&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;cost&gt;10.50&lt;/cost&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;/orderDTL&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;orderDTL
+ID=&quot;206&quot;&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;prodID&gt;10&lt;/prodID&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;qty&gt;6&lt;/qty&gt;</p>
+
+<p class=MsoNoSpacing>                                                &lt;cost&gt;120.89&lt;/cost&gt;</p>
+
+<p class=MsoNoSpacing>                                &lt;/orderDTL&gt;</p>
+
+<p class=MsoNoSpacing>                &lt;/orderHRD&gt;</p>
+
+<p class=MsoNoSpacing>&lt;/Root&gt;';</p>
+
+<p class=MsoNoSpacing><b>&nbsp;</b></p>
+
+<p class=MsoNoSpacing><b>-- Method #1: Query nested XML nodes by traversing
+backward and forward.</b></p>
+
+<p class=MsoNoSpacing><b>-- Query Cost: 81%</b></p>
+
+<p class=MsoNoSpacing>select</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('../@ID', 'int') as OrderHDR_ID,</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('../custID[1]', 'int') as Cust_ID,</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('@ID', 'int') as OrderDTL_ID,</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('prodID[1]', 'int') as Prod_ID,</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('qty[1]', 'int') as QTY,</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('cost[1]', 'float') as Cost,</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('count(../orderDTL)', 'int') as
+Cust_Ord_Count</p>
+
+<p class=MsoNoSpacing>from @xml.nodes('/Root/orderHRD/orderDTL') Tab(Col)</p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>-- Method #2: Query nested XML nodes by using CROSS
+APPLY on appropriate node.</b></p>
+
+<p class=MsoNoSpacing><b>-- Query Cost: 19%</b></p>
+
+<p class=MsoNoSpacing>select</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('@ID', 'int') as OrderHDR_ID,</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('custID[1]', 'int') as Cust_ID,</p>
+
+<p class=MsoNoSpacing>Tab1.Col1.value('@ID', 'int') as OrderDTL_ID,</p>
+
+<p class=MsoNoSpacing>Tab1.Col1.value('prodID[1]', 'int') as Prod_ID,</p>
+
+<p class=MsoNoSpacing>Tab1.Col1.value('qty[1]', 'int') as QTY,</p>
+
+<p class=MsoNoSpacing>Tab1.Col1.value('cost[1]', 'float') as Cost,</p>
+
+<p class=MsoNoSpacing>Tab.Col.value('count(./orderDTL)', 'int') as
+Cust_Ord_Count</p>
+
+<p class=MsoNoSpacing>from @xml.nodes('/Root/orderHRD') as Tab(Col)</p>
+
+<p class=MsoNoSpacing>cross apply Tab.Col.nodes('orderDTL') as Tab1(Col1)</p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Expected result:</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=469
+ style='width:351.5pt;border-collapse:collapse'>
+ <tr style='height:15.0pt'>
+  <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>OrderHDR_ID</p>
+  </td>
+  <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>Cust_ID</p>
+  </td>
+  <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>OrderDTL_ID</p>
+  </td>
+  <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>Prod_ID</p>
+  </td>
+  <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>QTY</p>
+  </td>
+  <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>Cost</p>
+  </td>
+  <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>Cust_Ord_Count</p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>101</p>
+  </td>
+  <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>501</p>
+  </td>
+  <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>201</p>
+  </td>
+  <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>1</p>
+  </td>
+  <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>5</p>
+  </td>
+  <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>25.12</p>
+  </td>
+  <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>2</p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>101</p>
+  </td>
+  <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>501</p>
+  </td>
+  <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>202</p>
+  </td>
+  <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>2</p>
+  </td>
+  <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>3</p>
+  </td>
+  <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>30</p>
+  </td>
+  <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>2</p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>102</p>
+  </td>
+  <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>502</p>
+  </td>
+  <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>203</p>
+  </td>
+  <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>11</p>
+  </td>
+  <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>12</p>
+  </td>
+  <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>140.78</p>
+  </td>
+  <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>1</p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>103</p>
+  </td>
+  <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>503</p>
+  </td>
+  <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>204</p>
+  </td>
+  <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>6</p>
+  </td>
+  <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>8</p>
+  </td>
+  <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>60.35</p>
+  </td>
+  <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>3</p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>103</p>
+  </td>
+  <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>503</p>
+  </td>
+  <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>205</p>
+  </td>
+  <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>9</p>
+  </td>
+  <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>2</p>
+  </td>
+  <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>10.5</p>
+  </td>
+  <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>3</p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>103</p>
+  </td>
+  <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>503</p>
+  </td>
+  <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>206</p>
+  </td>
+  <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>10</p>
+  </td>
+  <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>6</p>
+  </td>
+  <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>120.89</p>
+  </td>
+  <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.0pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'>3</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNoSpacing><b><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNoSpacing><b><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
 <p class=MsoNoSpacing><b><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
 <p class=MsoNoSpacing><b><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
