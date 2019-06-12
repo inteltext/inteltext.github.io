@@ -1,0 +1,131 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+address
+	{mso-style-link:"HTML Address Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.HTMLAddressChar
+	{mso-style-name:"HTML Address Char";
+	mso-style-link:"HTML Address";
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";}
+span.code-comment
+	{mso-style-name:code-comment;}
+span.code-keyword
+	{mso-style-name:code-keyword;}
+span.code-digit
+	{mso-style-name:code-digit;}
+span.code-string
+	{mso-style-name:code-string;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Century Gothic",sans-serif'>Table Valued Functions</span></b></p>
+
+<p class=MsoNoSpacing>As the name implies a Table Valued Function returns a
+table of results.  An example of a table valued function is created is:</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>CREATE FUNCTION dbo.fn_GetAllEmployeeOfADepartment(@DeptID
+AS INT)  </p>
+
+<p class=MsoNoSpacing>RETURNS TABLE </p>
+
+<p class=MsoNoSpacing>AS </p>
+
+<p class=MsoNoSpacing>RETURN </p>
+
+<p class=MsoNoSpacing>( </p>
+
+<p class=MsoNoSpacing>SELECT * FROM Employee E </p>
+
+<p class=MsoNoSpacing>WHERE E.DepartmentID = @DeptID </p>
+
+<p class=MsoNoSpacing>) </p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing><b><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='color:#111111;background:white'><a
+href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>
