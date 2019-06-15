@@ -139,52 +139,11 @@ p.MsoCaption, li.MsoCaption, div.MsoCaption
 	color:#404040;
 	font-weight:bold;}
 p.MsoTitle, li.MsoTitle, div.MsoTitle
-	{mso-style-link:"Title Char";
-	margin-top:0cm;
+	{margin-top:0cm;
 	margin-right:0cm;
 	margin-bottom:20.0pt;
 	margin-left:0cm;
 	text-align:center;
-	border:none;
-	padding:0cm;
-	font-size:36.0pt;
-	font-family:"Century Gothic",sans-serif;
-	color:#454545;
-	text-transform:uppercase;
-	letter-spacing:1.5pt;}
-p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
-	{mso-style-link:"Title Char";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	text-align:center;
-	border:none;
-	padding:0cm;
-	font-size:36.0pt;
-	font-family:"Century Gothic",sans-serif;
-	color:#454545;
-	text-transform:uppercase;
-	letter-spacing:1.5pt;}
-p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
-	{mso-style-link:"Title Char";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	text-align:center;
-	border:none;
-	padding:0cm;
-	font-size:36.0pt;
-	font-family:"Century Gothic",sans-serif;
-	color:#454545;
-	text-transform:uppercase;
-	letter-spacing:1.5pt;}
-p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
-	{mso-style-link:"Title Char";
-	margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:20.0pt;
-	margin-left:0cm;
-	text-align:center;
-	border:none;
-	padding:0cm;
 	font-size:36.0pt;
 	font-family:"Century Gothic",sans-serif;
 	color:#454545;
@@ -220,32 +179,6 @@ p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
 	font-size:10.5pt;
 	font-family:"Century Gothic",sans-serif;}
 p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:8.0pt;
-	margin-left:36.0pt;
-	line-height:125%;
-	font-size:10.5pt;
-	font-family:"Century Gothic",sans-serif;}
-p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:36.0pt;
-	margin-bottom:.0001pt;
-	line-height:125%;
-	font-size:10.5pt;
-	font-family:"Century Gothic",sans-serif;}
-p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:36.0pt;
-	margin-bottom:.0001pt;
-	line-height:125%;
-	font-size:10.5pt;
-	font-family:"Century Gothic",sans-serif;}
-p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
 	{margin-top:0cm;
 	margin-right:0cm;
 	margin-bottom:8.0pt;
@@ -339,6 +272,12 @@ span.Heading6Char
 	mso-style-link:"Heading 6";
 	font-family:"Century Gothic",sans-serif;
 	font-style:italic;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
 span.Heading7Char
 	{mso-style-name:"Heading 7 Char";
 	mso-style-link:"Heading 7";
@@ -355,7 +294,42 @@ span.Heading9Char
 	font-style:italic;}
 span.TitleChar
 	{mso-style-name:"Title Char";
-	mso-style-link:Title;
+	mso-style-link:msotitlecxsplast;
+	font-family:"Century Gothic",sans-serif;
+	color:#454545;
+	text-transform:uppercase;
+	letter-spacing:1.5pt;}
+p.msotitlecxspfirst, li.msotitlecxspfirst, div.msotitlecxspfirst
+	{mso-style-name:msotitlecxspfirst;
+	mso-style-link:"Title Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:36.0pt;
+	font-family:"Century Gothic",sans-serif;
+	color:#454545;
+	text-transform:uppercase;
+	letter-spacing:1.5pt;}
+p.msotitlecxspmiddle, li.msotitlecxspmiddle, div.msotitlecxspmiddle
+	{mso-style-name:msotitlecxspmiddle;
+	mso-style-link:"Title Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:36.0pt;
+	font-family:"Century Gothic",sans-serif;
+	color:#454545;
+	text-transform:uppercase;
+	letter-spacing:1.5pt;}
+p.msotitlecxsplast, li.msotitlecxsplast, div.msotitlecxsplast
+	{mso-style-name:msotitlecxsplast;
+	mso-style-link:"Title Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:20.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:36.0pt;
 	font-family:"Century Gothic",sans-serif;
 	color:#454545;
 	text-transform:uppercase;
@@ -364,6 +338,35 @@ span.SubtitleChar
 	{mso-style-name:"Subtitle Char";
 	mso-style-link:Subtitle;
 	color:#454545;}
+p.msolistparagraphcxspfirst, li.msolistparagraphcxspfirst, div.msolistparagraphcxspfirst
+	{mso-style-name:msolistparagraphcxspfirst;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:125%;
+	font-size:10.5pt;
+	font-family:"Century Gothic",sans-serif;}
+p.msolistparagraphcxspmiddle, li.msolistparagraphcxspmiddle, div.msolistparagraphcxspmiddle
+	{mso-style-name:msolistparagraphcxspmiddle;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:125%;
+	font-size:10.5pt;
+	font-family:"Century Gothic",sans-serif;}
+p.msolistparagraphcxsplast, li.msolistparagraphcxsplast, div.msolistparagraphcxsplast
+	{mso-style-name:msolistparagraphcxsplast;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:125%;
+	font-size:10.5pt;
+	font-family:"Century Gothic",sans-serif;}
 span.QuoteChar
 	{mso-style-name:"Quote Char";
 	mso-style-link:Quote;
@@ -375,6 +378,20 @@ span.IntenseQuoteChar
 	font-family:"Century Gothic",sans-serif;
 	color:#AB1E19;
 	text-transform:uppercase;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.5pt;
+	font-family:"Times New Roman",serif;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:125%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
 .MsoChpDefault
 	{font-size:10.5pt;}
 .MsoPapDefault
@@ -385,11 +402,6 @@ span.IntenseQuoteChar
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -399,7 +411,22 @@ ul
 
 <div class=WordSection1>
 
-<h1>COMPLEX PROBLEMS MADE SIMPLE</h1>
+<h1>COMPLEX PROBLEMS MADE SIMPLE AND OTHER DATABASE TIPS</h1>
+
+<h1 align=left style='text-align:left'><span style='font-size:12.0pt;
+color:windowtext'>I was first introduced the SQL server in 1998 by a colleague,
+Torben Hansen shortly after moving to live in Sydney, Australia. The company we
+were with was using SQL Server V6.0 at the time. Torben explained all the
+benefits of the database system, particularly the one important feature that had
+recently been introduced my Microsoft namely, the stored procedure. From then
+on I was a confirmed advocate of all that SQL Server had to offer, which even
+in those days was powerful, reliable, scalable and had useful tools to manage
+the database and create and test SQL scripts. The system and its supporting
+applications have moved forward and in 2019 even more exciting features are
+being added such as Machine Learning. I have worked with SQL Server since my
+introduction in 1998 and I am still discovering new and better ways to store
+and analyse data. A very special thank you to Torben, wherever you are in the
+world today, for having shown me the way.</span></h1>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -422,7 +449,7 @@ style='color:windowtext;text-decoration:none'>sublanguages</span></a>,
 commonly: a&nbsp;<a href="https://en.wikipedia.org/wiki/Data_query_language"
 title="Data query language"><span style='color:windowtext;text-decoration:none'>data
 query language</span></a>&nbsp;(DQL),<sup id="cite_ref-10" style='unicode-bidi:
-isolate'><a href="https://en.wikipedia.org/wiki/SQL#cite_note-10"></a> </sup>a&nbsp;<a
+isolate'> </sup>a&nbsp;<a
 href="https://en.wikipedia.org/wiki/Data_definition_language"
 title="Data definition language"><span style='color:windowtext;text-decoration:
 none'>data definition language</span></a>&nbsp;(DDL),&nbsp;a&nbsp;<a
@@ -465,71 +492,68 @@ style='font-family:"Century Gothic",sans-serif'> <b>it became the most widely
 used database language </b></span><span style='font-size:9.5pt;font-family:
 "Arial",sans-serif'>[Ref :</span><b><span style='font-family:"Century Gothic",sans-serif'>
 </span></b><span style='font-size:9.5pt;font-family:"Arial",sans-serif;
-color:#222222;background:white'>Wikipedia, the free encyclopaedia</span>]</span></p>
+color:#222222;background:white'>Wikipedia, the free encyclopaedia</span>]</p>
 
 <p class=MsoNormal><strong><span style='font-size:12.0pt;line-height:125%;
 font-family:"Century Gothic",sans-serif'>&nbsp;</span></strong></p>
 
-<p class=MsoNormal><strong><span style='font-size:12.0pt;line-height:125%;
-font-family:"Century Gothic",sans-serif'>&nbsp;</span></strong></p>
-
-<p class=MsoNormal><strong><span style='font-size:12.0pt;line-height:125%;
-font-family:"Century Gothic",sans-serif'>This compilation is just a few
-examples of the problems and their solutions I have tackled over the years.</span></strong></p>
-
-<p class=MsoNormal><strong><span style='font-size:12.0pt;line-height:125%;
-font-family:"Century Gothic",sans-serif'>&nbsp;</span></strong></p>
-
-<p class=MsoListParagraphCxSpFirst style='margin-left:46.35pt;text-indent:-18.0pt'><strong><span
-style='font-size:12.0pt;line-height:125%;font-family:"Century Gothic",sans-serif'>1.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></strong><strong><span
+<p class=MsoListParagraph style='margin-left:46.35pt;text-indent:-18.0pt'><strong><span
+style='font-size:12.0pt;line-height:125%;font-family:"Century Gothic",sans-serif'>1.</span></strong><strong><span
+style='font-size:7.0pt;line-height:125%'>&nbsp;&nbsp;&nbsp; </span></strong><strong><span
 style='font-size:12.0pt;line-height:125%;font-family:"Century Gothic",sans-serif'>SQL
 Solutions</span></strong></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>1.1<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><u><span
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'>1.1</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;color:red;text-decoration:none'>&nbsp; </span></span><u><span
 style='color:red'><a
 href="http://inteltext.github.io/SupplyChainAnalysisSQL.html"><span
 style='color:red'>Supply Chain Analysis</span></a></span></u></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>1.2<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><span
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'>1.2</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;color:red;text-decoration:none'>&nbsp; </span></span><span
 class=MsoHyperlink><span style='color:red'><a
 href="http://inteltext.github.io/GeneratingASequenceUsingACTE.html"><span
 style='color:red'>Generating a sequence using a CTE</span></a></span></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='text-decoration:none'>1.3<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><span
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='text-decoration:none'>1.3</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;text-decoration:none'>&nbsp; </span></span><span
 class=MsoHyperlink><span style='color:red'><a
 href="http://inteltext.github.io/TableValuedFunctions.html">Table Valued
 Functions</a></span></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>1.4<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><span
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'>1.4</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;color:red;text-decoration:none'>&nbsp; </span></span><span
 class=MsoHyperlink><span style='color:red'><a
 href="http://inteltext.github.io/ShreddingXMLData.html">Shredding XML Data</a></span></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>1.5<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><span
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'>1.5</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;color:red;text-decoration:none'>&nbsp; </span></span><span
 class=MsoHyperlink><span style='color:red'><a
 href="http://inteltext.github.io/StringParsingStringSplit.html">String parsing
 STRING_SPLIT()</a></span></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>1.6<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><span
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'>1.6</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;color:red;text-decoration:none'>&nbsp; </span></span><span
 class=MsoHyperlink><span style='color:red'><a
 href="http://inteltext.github.io/ConcatenateStringsStringAgg.html">Concatenate
 strings STRING_AGG()</a></span></span></p>
 
-<p class=MsoListParagraphCxSpLast style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>1.7<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><span
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'>1.7</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;color:red;text-decoration:none'>&nbsp; </span></span><span
 class=MsoHyperlink><span style='color:red'><a
 href="http://inteltext.github.io/PaginationUsingRowNumber.html">Pagination
 using ROW_NUMBER with a CTE</a></span></span></p>
@@ -537,97 +561,136 @@ using ROW_NUMBER with a CTE</a></span></span></p>
 <p class=MsoNoSpacing><span class=MsoHyperlink><span style='color:black;
 text-decoration:none'>&nbsp;</span></span></p>
 
-<p class=MsoListParagraphCxSpFirst style='margin-left:46.35pt;text-indent:-18.0pt'><span
+<p class=MsoListParagraph style='margin-left:46.35pt;text-indent:-18.0pt'><span
 class=MsoHyperlink><b><span style='font-size:12.0pt;line-height:125%;
-color:black;text-decoration:none'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
-</span></span></b></span><span class=MsoHyperlink><b><span style='font-size:
-12.0pt;line-height:125%;color:black;text-decoration:none'>SQL operators</span></b></span></p>
+color:black;text-decoration:none'>2.</span></b></span><span class=MsoHyperlink><b><span
+style='font-size:7.0pt;line-height:125%;font-family:"Times New Roman",serif;
+color:black;text-decoration:none'>&nbsp;&nbsp;&nbsp; </span></b></span><span
+class=MsoHyperlink><b><span style='font-size:12.0pt;line-height:125%;
+color:black;text-decoration:none'>SQL operators</span></b></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>2.1<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>ALL and ANY
-operators</span></span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'>2.1</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;color:red;text-decoration:none'>&nbsp; </span></span><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'><a
+href="http://inteltext.github.io/AllAndAnyOperators.html">ALL and ANY operators</a></span></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>2.2<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>MERGE operator</span></span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'>2.2</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;color:red;text-decoration:none'>&nbsp; </span></span><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'><a
+href="http://inteltext.github.io/MergeOperator.html">MERGE operator</a></span></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>2.3<span
-style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><span
-class=MsoHyperlink><span style='color:red;text-decoration:none'>CROSS APPLY and
-OUTER APPLY</span></span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'>2.3</span></span><span
+class=MsoHyperlink><span style='font-size:7.0pt;line-height:125%;font-family:
+"Times New Roman",serif;color:red;text-decoration:none'>&nbsp; </span></span><span
+class=MsoHyperlink><span style='color:red;text-decoration:none'><a
+href="http://inteltext.github.io/CrossApplyAndOuterApply.html">CROSS APPLY and
+OUTER APPLY</a></span></span><span class=MsoHyperlink><span style='text-decoration:
+none'>&nbsp;</span></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:64.35pt'><span
-class=MsoHyperlink><span style='text-decoration:none'>&nbsp;</span></span></p>
+<p class=MsoListParagraph style='margin-left:64.35pt'><span class=MsoHyperlink><span
+style='text-decoration:none'>&nbsp;</span></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:64.35pt'><span
-class=MsoHyperlink><span style='text-decoration:none'>&nbsp;</span></span></p>
+<p class=MsoListParagraph style='margin-left:46.35pt;text-indent:-18.0pt'><b><span
+style='font-size:12.0pt;line-height:125%'>3.</span></b><b><span
+style='font-size:7.0pt;line-height:125%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;
+</span></b><b><span style='font-size:12.0pt;line-height:125%'>Query
+Optimization Tips (Things to avoid and things to do to improve performance)</span></b></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:46.35pt;text-indent:
--18.0pt'><b><span style='font-size:12.0pt;line-height:125%'>3.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></b><b><span
-style='font-size:12.0pt;line-height:125%'>Query Optimization Tips</span></b></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+style='color:red'>3.1</span><span style='font-size:7.0pt;line-height:125%;
+font-family:"Times New Roman",serif;color:red'>&nbsp; </span><span
+style='color:red'><a href="http://inteltext.github.io/ORInWherePredicate.html">OR
+in WHERE Predicates</a></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-style='color:red'>3.1<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='color:red'>OR in where Predicates</span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+style='color:red'>3.2</span><span style='font-size:7.0pt;line-height:125%;
+font-family:"Times New Roman",serif;color:red'>&nbsp; </span><span
+style='color:red'><a
+href="http://inteltext.github.io/WildCardStringSearches.html">Wildcard string
+searches</a></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-style='color:red'>3.2<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='color:red'>Wildcard string searches</span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+style='color:red'>3.3</span><span style='font-size:7.0pt;line-height:125%;
+font-family:"Times New Roman",serif;color:red'>&nbsp; </span><span
+style='color:red'><a
+href="http://inteltext.github.io/IndexAndStatisticsMaintenance.html">Index and
+Statistics Maintenance</a></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-style='color:red'>3.3<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='color:red'>Index and Statistics Maintenance</span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+style='color:red'>3.4</span><span style='font-size:7.0pt;line-height:125%;
+font-family:"Times New Roman",serif;color:red'>&nbsp; </span><span
+style='color:red'><a
+href="http://inteltext.github.io/AvoidHighlyDuplicateIndexes.html">Avoid Highly
+Duplicate Indexes</a></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-style='color:red'>3.4<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='color:red'>Large Write Operations</span></p>
-
-<p class=MsoListParagraphCxSpLast style='margin-left:60.5pt;text-indent:-18.0pt'><span
-style='color:red'>3.5<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='color:red'>Analyse the Execution Plan</span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+style='color:red'>3.5</span><span style='font-size:7.0pt;line-height:125%;
+font-family:"Times New Roman",serif;color:red'>&nbsp; </span><span
+style='color:red'><a
+href="http://inteltext.github.io/AnalyseTheExecutionPlan.html">Analyse the
+Execution Plan</a></span></p>
 
 <p class=MsoNormal style='margin-left:1.0cm'><b><span style='font-size:12.0pt;
 line-height:125%'>&nbsp;</span></b></p>
 
-<p class=MsoListParagraphCxSpFirst style='margin-left:46.35pt;text-indent:-18.0pt'><b><span
-style='font-size:12.0pt;line-height:125%'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
-</span></span></b><b><span style='font-size:12.0pt;line-height:125%'>SQL :
-Useful scripts</span></b></p>
+<p class=MsoListParagraph style='margin-left:46.35pt;text-indent:-18.0pt'><b><span
+style='font-size:12.0pt;line-height:125%'>4.</span></b><b><span
+style='font-size:7.0pt;line-height:125%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;
+</span></b><b><span style='font-size:12.0pt;line-height:125%'>SQL : Useful
+scripts </span></b></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-style='color:red'>4.1<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='color:red'>List tables in a database</span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+style='color:red'>4.1</span><span style='font-size:7.0pt;line-height:125%;
+font-family:"Times New Roman",serif;color:red'>&nbsp; </span><span
+style='color:red'><a
+href="http://inteltext.github.io/ListTablesInADatabase.html">List tables in a
+database</a></span></p>
 
-<p class=MsoListParagraphCxSpMiddle style='margin-left:60.5pt;text-indent:-18.0pt'><span
-style='color:red'>4.2<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='color:red'>List databases in a database</span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+style='color:red'>4.2</span><span style='font-size:7.0pt;line-height:125%;
+font-family:"Times New Roman",serif;color:red'>&nbsp; </span><span
+style='color:red'><a
+href="http://inteltext.github.io/ListDatabasesInADatabase.html">List databases
+in a database</a></span></p>
 
-<p class=MsoListParagraphCxSpLast style='margin-left:60.5pt;text-indent:-18.0pt'><span
-style='color:red'>4.3<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-style='color:red'>Search database for a required column name</span></p>
+<p class=MsoListParagraph style='margin-left:60.5pt;text-indent:-18.0pt'><span
+style='color:red'>4.3</span><span style='font-size:7.0pt;line-height:125%;
+font-family:"Times New Roman",serif;color:red'>&nbsp; </span><span
+style='color:red'><a
+href="http://inteltext.github.io/SearchDatabaseForARequiredColumnName.html">Search
+database for a required column name</a></span></p>
 
 <p class=MsoNormal><span style='color:red'>&nbsp;</span></p>
 
 <p class=MsoListParagraph style='margin-left:46.35pt;text-indent:-18.0pt'><b><span
-style='font-size:12.0pt;line-height:125%'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
-</span></span></b><b><span style='font-size:12.0pt;line-height:125%'>SQL Server
-backup models and recovery considerations</span></b></p>
+style='font-size:12.0pt;line-height:125%'>5.</span></b><b><span
+style='font-size:7.0pt;line-height:125%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;
+</span></b><b><span style='font-size:12.0pt;line-height:125%'>SQL Server backup
+models and recovery considerations</span></b></p>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:125%'>&nbsp;</span></b></p>
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:125%'>&nbsp;          
+</span></b><span style='color:red'>5.1 <a
+href="http://inteltext.github.io/SimpleFullBulkLoggedRecoveryModels.html">Simple,
+Full and Bulk Logged Recovery Models</a></span></p>
 
-<p class=MsoListParagraphCxSpFirst style='margin-left:46.35pt;text-indent:-18.0pt'><b><span
-style='font-size:12.0pt;line-height:125%'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
-</span></span></b><b><span style='font-size:12.0pt;line-height:125%'>The way
-forward : Machine Learning with SQL Server 2017</span></b></p>
+<p class=MsoListParagraph style='margin-left:46.35pt;text-indent:-18.0pt'><b><span
+style='font-size:12.0pt;line-height:125%'>6.</span></b><b><span
+style='font-size:7.0pt;line-height:125%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;
+</span></b><b><span style='font-size:12.0pt;line-height:125%'>The way forward :
+Machine Learning with SQL Server 2017</span></b></p>
 
-<p class=MsoListParagraphCxSpLast>&nbsp;</p>
+<p class=MsoListParagraph style='margin-left:46.35pt;text-indent:-18.0pt'><b><span
+style='font-size:12.0pt;line-height:125%'>     This has recently become one of my
+favourite interests; the subject and mathematics of Machine Learning and its
+application to real world situations. This combined with the tools in SQL
+Server Visual Studio make it feasible to build and test complex models.   </span></b></p>
 
-<p class=MsoNormal style='margin-left:1.0cm'><a
+<p class=MsoNormal style='margin-left:1.0cm'>      <a
 href="https://www.mssqltips.com/sqlservertutorial/9057/basics-of-machine-learning-with-sql-server-2017-and-r/">https://www.mssqltips.com/sqlservertutorial/9057/basics-of-machine-learning-with-sql-server-2017-and-r/</a></p>
 
 <p class=MsoNormal><span style='color:red'>&nbsp;</span></p>

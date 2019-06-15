@@ -1,0 +1,515 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:18.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+address
+	{mso-style-link:"HTML Address Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.HTMLAddressChar
+	{mso-style-name:"HTML Address Char";
+	mso-style-link:"HTML Address";
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.code-comment
+	{mso-style-name:code-comment;}
+span.code-keyword
+	{mso-style-name:code-keyword;}
+span.code-digit
+	{mso-style-name:code-digit;}
+span.code-string
+	{mso-style-name:code-string;}
+span.hljs-keyword
+	{mso-style-name:hljs-keyword;}
+span.hljs-string
+	{mso-style-name:hljs-string;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+span.crayon-k
+	{mso-style-name:crayon-k;}
+span.crayon-h
+	{mso-style-name:crayon-h;}
+span.crayon-i
+	{mso-style-name:crayon-i;}
+span.crayon-sy
+	{mso-style-name:crayon-sy;}
+span.crayon-o
+	{mso-style-name:crayon-o;}
+span.crayon-s
+	{mso-style-name:crayon-s;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:106%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+font-family:"Century Gothic",sans-serif'>SIMPLE, FULL and BULK logged Recovery
+Models</span></b></p>
+
+<p class=MsoNoSpacing>All SQL Server database backup, restore, and recovery
+operations are based on one of three available recovery models:</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>SIMPLE</b></p>
+
+<p class=MsoNoSpacing><b>FULL</b></p>
+
+<p class=MsoNoSpacing><b>BULK_Logged</b>                    </p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>A recovery model is a database configuration option that
+determines the type of backup that one could perform, and provides the ability
+to restore the data or recover it from a failure.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>The recovery model decides how the transaction log of a
+database should be maintained and protects the data changes in a specific
+sequence, which may later be used for a database restore operation.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>SIMPLE</b></p>
+
+<p class=MsoNoSpacing>The SIMPLE recovery model is the simplest among the
+available models. It supports full, differential, and file level backups.
+Transaction log backups are not supported. The log space is reused whenever the
+SQL Server background process checkpoint operation occurs. The inactive portion
+of the log file is removed and is made available for reuse.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Point-in-time and page restore are not supported, only
+the restoration of the secondary read-only file is supported.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Reasons to choose the simple database recovery model</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Most suited for Development and Test databases</p>
+
+<p class=MsoNoSpacing>Simple reporting or application database, where data loss
+is acceptable</p>
+
+<p class=MsoNoSpacing>The point-of-failure recovery is exclusively for full and
+differential backups</p>
+
+<p class=MsoNoSpacing>No administrative overhead</p>
+
+<p class=MsoNoSpacing>It supports:</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Full backup</p>
+
+<p class=MsoNoSpacing>Differential backup</p>
+
+<p class=MsoNoSpacing>Copy-Only backup</p>
+
+<p class=MsoNoSpacing>File backup</p>
+
+<p class=MsoNoSpacing>Partial backup</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>FULL</b></p>
+
+<p class=MsoNoSpacing>In this recovery model, all the transactions (DDL (Data
+Definition Language) + DML (Data Manipulation Language)) are fully recorded in
+the transaction log file. The log sequence is unbroken and is preserved for the
+databases restore operations. Unlike the Simple recovery model, the transaction
+log file is not auto-truncated during CHECKPOINT operations.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>All restore operations are supported, including
+point-in-time restore, page restore and file restore.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Reasons to choose the full database recovery model:</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Supporting mission critical applications</p>
+
+<p class=MsoNoSpacing>Design High Availability solutions</p>
+
+<p class=MsoNoSpacing>To facilitate the recovery of all the data with zero or
+minimal data loss</p>
+
+<p class=MsoNoSpacing>If the database designed to have multiple filegroups, and
+you want to perform a piecemeal restore of read/write secondary filegroups and,
+optionally, read-only filegroups.</p>
+
+<p class=MsoNoSpacing>Allow arbitrary point-in-time restoration</p>
+
+<p class=MsoNoSpacing>Restore individual pages</p>
+
+<p class=MsoNoSpacing>Incur high administration overhead</p>
+
+<p class=MsoNoSpacing>It supports all type of following backups</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Full backup</p>
+
+<p class=MsoNoSpacing>Differential backup</p>
+
+<p class=MsoNoSpacing>Transaction log backup</p>
+
+<p class=MsoNoSpacing>Copy-Only backup</p>
+
+<p class=MsoNoSpacing>File and/or file-group backup</p>
+
+<p class=MsoNoSpacing>Partial backup</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>BULK_LOGGED</b></p>
+
+<p class=MsoNoSpacing>It’s a special purpose database configuration option and
+it works similar to FULL recovery model except that certain bulk operations can
+be minimally logged. The transaction log file uses a technique known as minimal
+logging for bulk operations. The catch is that it’s not possible to restore
+specific point-in-time data.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Reasons to choose the bulk logged recovery model:</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Use minimal logging technique to prevent log file growth</p>
+
+<p class=MsoNoSpacing>If the database is subjected to periodic bulk operations</p>
+
+<p class=MsoNoSpacing>It supports all types of backups:</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Full backup</p>
+
+<p class=MsoNoSpacing>Differential backup</p>
+
+<p class=MsoNoSpacing>Transaction log backup</p>
+
+<p class=MsoNoSpacing>Copy-Only backup</p>
+
+<p class=MsoNoSpacing>File and/or file-group backup</p>
+
+<p class=MsoNoSpacing>Partial backup</p>
+
+<p class=MsoNoSpacing>Transaction log internals</p>
+
+<p class=MsoNoSpacing>It’s worth taking the time to understand the internals of
+the SQL Server transaction log.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Whenever there is a transaction (DDL and DML) the details
+of every operation is logged in the transaction log file</p>
+
+<p class=MsoNoSpacing>The transaction log backup ensures transactional
+durability and data consistency using a mechanism known as WAL
+(Write-Ahead-Logging). The transactions that occur on the database first get
+registered into the transaction log file and then the data is written to the
+disk. This facilitates the SQL Server to rollback or roll-forward every step of
+the recovery process</p>
+
+<p class=MsoNoSpacing>Enables point-in-time restore of databases</p>
+
+<p class=MsoNoSpacing>SQL Server always writes to the transaction log file
+sequentially. It’s cyclic in nature. The transaction log file is further divided
+into log blocks which are logically mapped using VLF’s (Virtual Log Files)</p>
+
+<p class=MsoNoSpacing>The log records in the blocks that are no longer needed
+are deemed as “inactive,” and this portion of the log blocks can be truncated,
+i.e., the inactive segments of the log blocks are overwritten by new
+transactions. These segments or portion of the log file are known as virtual
+log files (VLFs)</p>
+
+<p class=MsoNoSpacing>Any inactive VLF can be truncated, although the point at
+which this truncation can occur depends on the recovery model of the database</p>
+
+<p class=MsoNoSpacing>In the SIMPLE recovery model, truncation can take place
+immediately upon the occurrence of a CHECKPOINT operation. Pages in the data
+cache are flushed to the disk, having first “hardened” the changes to the log
+file. The space in any VLFs that becomes inactive as a result, and is made
+available for reuse</p>
+
+<p class=MsoNoSpacing>A database may have multiple log files but it’s mandatory
+to have at least one. It will only ever write to one log file at a time, and
+having more than one files will not boost write-throughput or speed. In fact,
+having more multiple files could result in performance degradation, if each
+file is not correctly sized or differs in size. Any mismatch leads to longer
+duration of recovery of the database</p>
+
+<p class=MsoNoSpacing>For business-critical databases, it is recommended to initiate
+full database backups, followed by a series of frequent transaction log
+backups, followed by another full backup, and so on. As part of the database
+restore operation, we can restore the most recent full backup (plus
+differentials, if taken), followed by the chain of available log file backups,
+up to the one covering the point in time to which we wish to restore the
+database </p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>Recovery Model Overview</b></p>
+
+<p class=MsoNoSpacing><b>&nbsp;</b></p>
+
+<p class=MsoNoSpacing><b>Simple</b></p>
+
+<p class=MsoNoSpacing>Description</p>
+
+<p class=MsoNoSpacing>No transaction log backups.</p>
+
+<p class=MsoNoSpacing>In the Simple Recovery Model, the transaction log is
+automatically purged and the file size is kept intact. Because of this, you
+can’t make log backups in this case.</p>
+
+<p class=MsoNoSpacing>Supports only full and bulk_logged backup operations.</p>
+
+<p class=MsoNoSpacing>The unsupported features of in simple recovery model are:
+Log shipping, AlwaysOn or Mirroring and Point-in-time restore</p>
+
+<p class=MsoNoSpacing>Data loss</p>
+
+<p class=MsoNoSpacing>Yes; we cannot restore the database to an arbitrary point
+in time. This means, in the event of a failure, it is only possible to restore
+database as current as the last full or differential backup, and data loss is a
+real possibility</p>
+
+<p class=MsoNoSpacing>Point-in-time restore : No</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>Full</b></p>
+
+<p class=MsoNoSpacing>Description</p>
+
+<p class=MsoNoSpacing>Supports transaction log backups.</p>
+
+<p class=MsoNoSpacing>No work is lost due to a lost or damaged data file. The
+Full database recovery model completely records every transaction that occurs
+on the database. </p>
+
+<p class=MsoNoSpacing>One could arbitrarily choose a point in time for database
+restore. </p>
+
+<p class=MsoNoSpacing>This is possible by first restoring a full backup, most
+recent differential then replaying the changes recorded in the transaction log.
+If a differential backup doesn’t exist, then the series of t-logs are applied.</p>
+
+<p class=MsoNoSpacing>Supports Point-in-time data recovery.</p>
+
+<p class=MsoNoSpacing>If the database uses the full recovery model, the
+transaction log would grow infinitely, and that will be a problem. So, we need
+to make sure that we take transaction log backups on a regular basis. </p>
+
+<p class=MsoNoSpacing>Data loss</p>
+
+<p class=MsoNoSpacing>Minimal or zero data loss.</p>
+
+<p class=MsoNoSpacing>Point-in-time restore</p>
+
+<p class=MsoNoSpacing>This setup enables more options. </p>
+
+<p class=MsoNoSpacing>Point-in-time recovery.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>Bulk logged</b></p>
+
+<p class=MsoNoSpacing>Description</p>
+
+<p class=MsoNoSpacing>This model is similar to the Full Recovery Model, in that
+a transaction log is kept, but certain transactions such as bulk loading
+operations are minimally logged, although it logs other transaction. This makes
+the bulk data imports perform quicker and keeps the file size of the
+transaction log down, but does not support the point in time recovery of the
+data.</p>
+
+<p class=MsoNoSpacing>This can help increase performance bulk load operations.</p>
+
+<p class=MsoNoSpacing>Reduces log space usage by using minimal logging for most
+bulk operations.</p>
+
+<p class=MsoNoSpacing>Data loss</p>
+
+<p class=MsoNoSpacing>If you run transactions under the bulk-logged recovery
+model that might require a transaction log restore, these transactions could be
+exposed to data loss.</p>
+
+<p class=MsoNoSpacing>Point-in-time restore</p>
+
+<p class=MsoNoSpacing>Point-in-time recovery is not possible with bulk-logged
+model</p>
+
+<p class=MsoNoSpacing>It is possible only if the following conditions are
+satisfied: </p>
+
+<p class=MsoNoSpacing>Users are currently not allowed in the database. </p>
+
+<p class=MsoNoSpacing>If you’re able to re-running the bulk processes.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>Switching recovery models :</b></p>
+
+<p class=MsoNoSpacing><b>&nbsp;</b></p>
+
+<p class=MsoNoSpacing><b>Full and bulk-logged</b></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Initiate a log backup</p>
+
+<p class=MsoNoSpacing>Perform bulk operations, immediately switch back the
+database to full recovery model</p>
+
+<p class=MsoNoSpacing>Initiate transaction log backup</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>Simple to FULL or Differential</b></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Initiate a full (or differential, if full is already
+available) database backup</p>
+
+<p class=MsoNoSpacing>Schedule t-log backups</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>FULL or BULK_Logged to Simple</b></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Disable the transaction log backup job</p>
+
+<p class=MsoNoSpacing>Ensure that there is a job to take full backup        </p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNormal><span style='color:#111111;background:white'><a
+href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>

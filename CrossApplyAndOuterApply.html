@@ -1,0 +1,249 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:18.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+address
+	{mso-style-link:"HTML Address Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.HTMLAddressChar
+	{mso-style-name:"HTML Address Char";
+	mso-style-link:"HTML Address";
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.code-comment
+	{mso-style-name:code-comment;}
+span.code-keyword
+	{mso-style-name:code-keyword;}
+span.code-digit
+	{mso-style-name:code-digit;}
+span.code-string
+	{mso-style-name:code-string;}
+span.hljs-keyword
+	{mso-style-name:hljs-keyword;}
+span.hljs-string
+	{mso-style-name:hljs-string;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:106%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+font-family:"Century Gothic",sans-serif'>CROSS APPLY and OUTER APPLY</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>SQL Server
+APPLY operator has two variants; CROSS APPLY and OUTER APPLY</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white'><span style='color:#222222'>The </span><b>CROSS
+APPLY</b> <span style='color:#222222'>operator returns only those rows from the
+left table expression (in its final output) if it matches with the right table
+expression. In other words, the right table expression returns rows for the
+left table expression match only.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white'><span style='color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white'><span style='color:#222222'>The </span><b>OUTER
+APPLY</b> <span style='color:#222222'>operator returns all the rows from the
+left table expression irrespective of its match with the right table
+expression. For those rows for which there are no corresponding matches in the
+right table expression, it contains NULL values in columns of the right table
+expression.</span></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><span style='background:white'>Although the same can be
+achieved with a&nbsp;</span><a
+href="https://www.mssqltips.com/sqlservertip/1667/sql-server-join-example/"
+target="_blank"><span style='color:windowtext;background:white;text-decoration:
+none'>normal JOIN</span></a><span style='background:white'>, the need of APPLY
+arises if you have a <b>table-valued expression</b> on the right part and in
+some cases the use of the APPLY operator boosts&nbsp;</span><a
+href="https://www.mssqltips.com/sql-server-tip-category/9/performance-tuning/"
+target="_blank"><span style='color:windowtext;background:white;text-decoration:
+none'>performance</span></a><span style='background:white'>&nbsp;of the query.</span></p>
+
+<p class=MsoNoSpacing><span style='background:white'>&nbsp;</span></p>
+
+<h2 style='background:white'><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>Joining
+table valued functions and tables using APPLY operators</span></h2>
+
+<p class=MsoNoSpacing>Example: (SQL Server 2012 – Database : AdventureWorks2012)</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>IF EXISTS (SELECT * FROM sys.objects WHERE OBJECT_ID =
+OBJECT_ID(N'[fn_GetAllEmployeeOfADepartment]') AND type IN (N'IF')) </p>
+
+<p class=MsoNoSpacing>BEGIN </p>
+
+<p class=MsoNoSpacing>DROP FUNCTION dbo.fn_GetAllEmployeeOfADepartment </p>
+
+<p class=MsoNoSpacing>END </p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>CREATE FUNCTION
+dbo.fn_GetAllEmployeeOfADepartment(@SalesTerritoryKey AS INT)  </p>
+
+<p class=MsoNoSpacing>RETURNS TABLE </p>
+
+<p class=MsoNoSpacing>AS </p>
+
+<p class=MsoNoSpacing>RETURN </p>
+
+<p class=MsoNoSpacing>( </p>
+
+<p class=MsoNoSpacing>SELECT * FROM [dbo].[DimEmployee] E </p>
+
+<p class=MsoNoSpacing>WHERE E.[SalesTerritoryKey] = @SalesTerritoryKey </p>
+
+<p class=MsoNoSpacing>) </p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>SELECT * FROM [dbo].[DimDepartmentGroup] D </p>
+
+<p class=MsoNoSpacing>CROSS APPLY
+dbo.fn_GetAllEmployeeOfADepartment(D.[DepartmentGroupKey]) </p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>SELECT * FROM [dbo].[DimDepartmentGroup] D </p>
+
+<p class=MsoNoSpacing>OUTER APPLY
+dbo.fn_GetAllEmployeeOfADepartment(D.[DepartmentGroupKey]) </p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNormal><span style='color:#111111;background:white'><a
+href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>

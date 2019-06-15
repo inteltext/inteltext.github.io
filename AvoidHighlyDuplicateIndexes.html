@@ -1,0 +1,229 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:18.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+address
+	{mso-style-link:"HTML Address Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.HTMLAddressChar
+	{mso-style-name:"HTML Address Char";
+	mso-style-link:"HTML Address";
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.code-comment
+	{mso-style-name:code-comment;}
+span.code-keyword
+	{mso-style-name:code-keyword;}
+span.code-digit
+	{mso-style-name:code-digit;}
+span.code-string
+	{mso-style-name:code-string;}
+span.hljs-keyword
+	{mso-style-name:hljs-keyword;}
+span.hljs-string
+	{mso-style-name:hljs-string;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+span.crayon-k
+	{mso-style-name:crayon-k;}
+span.crayon-h
+	{mso-style-name:crayon-h;}
+span.crayon-i
+	{mso-style-name:crayon-i;}
+span.crayon-sy
+	{mso-style-name:crayon-sy;}
+span.crayon-o
+	{mso-style-name:crayon-o;}
+span.crayon-s
+	{mso-style-name:crayon-s;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:106%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+font-family:"Century Gothic",sans-serif'>Avoid Highly Duplicate Indexes</span></b></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>A highly duplicate index contains a limited number of
+unique values. For example, if you place an index on a column that contains
+only two or three values, that index is highly duplicate.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Having a highly duplicate index on a column is worse than
+having no index at all. The database engine must work a lot to process a highly
+duplicate index during important operations such as inserting, updating, or
+deleting data. For example, suppose there is a table that tracks customers'
+participation in a special bonus program. By placing an index on the
+participated column, there are only two possible values for that index: Y or N.
+When adding a new row into this table, the engine must add the new value to the
+existing index.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>This addition can cause the undesired side effect of
+internal index restructuring to handle the new value. Deleting, querying, or
+sorting based on the index also makes the engine work harder, thus adding many
+unnecessary I/O operations to your system and likely degrading performance.
+Instead of using the highly duplicate index, having the engine go directly to
+the data and read it sequentially is probably faster and simpler.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>One can determine whether an index is highly duplicate by
+running the Database Consistency Checker (DBCC) show_statistics command. With
+other information, the statistics utility reports on the index's selectivity),
+the relative number of distinct values in the index. In this case, only two
+values are possible, which yields a poor degree of selectivity.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>When confronted with such a poor degree of selectivity,
+SQL Server may not even use the highly duplicate index at all to retrieve
+information. However, the highly duplicate index still causes extra work for
+SQL Server during inserts, updates, and deletes.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>To avoid performance problems when you must sort or
+search on a highly duplicate value, combine the column in question with a
+column containing more selective values. This step creates a composite index.
+In the previous example, the correct composite index is</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>create index bonus_acct_</p>
+
+<p class=MsoNoSpacing>participated_ix on</p>
+
+<p class=MsoNoSpacing>bonus(account_number, participated) </p>
+
+<p class=MsoNoSpacing>                 </p>
+
+<p class=MsoNoSpacing>Because the account_number column is more selective than
+the participated column, combining these two columns yields a more selective
+and efficient index. You can now use this index to search for and sort by
+account_number for all customers who have participated in the bonus plan.
+(Don't forget that to use a composite index in filtering or sorting data, your
+SQL statement must always specify columns in a table from left to right.)</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNormal><span style='color:#111111;background:white'><a
+href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>

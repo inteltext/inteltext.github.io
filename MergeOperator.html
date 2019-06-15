@@ -1,0 +1,317 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+address
+	{mso-style-link:"HTML Address Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.HTMLAddressChar
+	{mso-style-name:"HTML Address Char";
+	mso-style-link:"HTML Address";
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.code-comment
+	{mso-style-name:code-comment;}
+span.code-keyword
+	{mso-style-name:code-keyword;}
+span.code-digit
+	{mso-style-name:code-digit;}
+span.code-string
+	{mso-style-name:code-string;}
+span.hljs-keyword
+	{mso-style-name:hljs-keyword;}
+span.hljs-string
+	{mso-style-name:hljs-string;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:106%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+font-family:"Century Gothic",sans-serif'>MERGE Operator</span></b></p>
+
+<p class=MsoNoSpacing>Using the INSERT, UPDATE, and DELETE statement
+individually requires constructing three separate statements to update the data
+to the target table with the matching rows from the source table. A better solution
+is to use the MERGE statement which performs the three actions in the same
+construct.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>The syntax of the MERGE statement:</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>MERGE target_table </p>
+
+<p class=MsoNoSpacing>USING source_table</p>
+
+<p class=MsoNoSpacing>ON merge_condition</p>
+
+<p class=MsoNoSpacing>WHEN MATCHED</p>
+
+<p class=MsoNoSpacing>THEN update_statement</p>
+
+<p class=MsoNoSpacing>WHEN NOT MATCHED</p>
+
+<p class=MsoNoSpacing>THEN insert_statement</p>
+
+<p class=MsoNoSpacing>WHEN NOT MATCHED BY SOURCE</p>
+
+<p class=MsoNoSpacing>THEN DELETE;</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Example:</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>--MERGE SQL statement - Part 1</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>--Create a target table</p>
+
+<p class=MsoNoSpacing>CREATE TABLE Products</p>
+
+<p class=MsoNoSpacing>(</p>
+
+<p class=MsoNoSpacing>ProductID INT PRIMARY KEY,</p>
+
+<p class=MsoNoSpacing>ProductName VARCHAR(100),</p>
+
+<p class=MsoNoSpacing>Rate MONEY</p>
+
+<p class=MsoNoSpacing>) </p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>--Insert records into target table</p>
+
+<p class=MsoNoSpacing>INSERT INTO Products</p>
+
+<p class=MsoNoSpacing>VALUES</p>
+
+<p class=MsoNoSpacing>(1, 'Tea', 10.00),</p>
+
+<p class=MsoNoSpacing>(2, 'Coffee', 20.00),</p>
+
+<p class=MsoNoSpacing>(3, 'Muffin', 30.00),</p>
+
+<p class=MsoNoSpacing>(4, 'Biscuit', 40.00)</p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>--Create source table</p>
+
+<p class=MsoNoSpacing>CREATE TABLE UpdatedProducts</p>
+
+<p class=MsoNoSpacing>(</p>
+
+<p class=MsoNoSpacing>ProductID INT PRIMARY KEY,</p>
+
+<p class=MsoNoSpacing>ProductName VARCHAR(100),</p>
+
+<p class=MsoNoSpacing>Rate MONEY</p>
+
+<p class=MsoNoSpacing>) </p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>--Insert records into source table</p>
+
+<p class=MsoNoSpacing>INSERT INTO UpdatedProducts</p>
+
+<p class=MsoNoSpacing>VALUES</p>
+
+<p class=MsoNoSpacing>(1, 'Tea', 10.00),</p>
+
+<p class=MsoNoSpacing>(2, 'Coffee', 25.00),</p>
+
+<p class=MsoNoSpacing>(3, 'Muffin', 35.00),</p>
+
+<p class=MsoNoSpacing>(5, 'Pizza', 60.00)</p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>SELECT * FROM Products</p>
+
+<p class=MsoNoSpacing>SELECT * FROM UpdatedProducts</p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>--MERGE SQL statement - Part 2</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>--Synchronize the target table with refreshed data from
+source table</p>
+
+<p class=MsoNoSpacing>MERGE Products AS TARGET</p>
+
+<p class=MsoNoSpacing>USING UpdatedProducts AS SOURCE </p>
+
+<p class=MsoNoSpacing>ON (TARGET.ProductID = SOURCE.ProductID) </p>
+
+<p class=MsoNoSpacing>--When records are matched, update the records if there
+is any change</p>
+
+<p class=MsoNoSpacing>WHEN MATCHED AND TARGET.ProductName &lt;&gt;
+SOURCE.ProductName OR TARGET.Rate &lt;&gt; SOURCE.Rate </p>
+
+<p class=MsoNoSpacing>THEN UPDATE SET TARGET.ProductName = SOURCE.ProductName,
+TARGET.Rate = SOURCE.Rate </p>
+
+<p class=MsoNoSpacing>--When no records are matched, insert the incoming
+records from source table to target table</p>
+
+<p class=MsoNoSpacing>WHEN NOT MATCHED BY TARGET </p>
+
+<p class=MsoNoSpacing>THEN INSERT (ProductID, ProductName, Rate) VALUES
+(SOURCE.ProductID, SOURCE.ProductName, SOURCE.Rate)</p>
+
+<p class=MsoNoSpacing>--When there is a row that exists in target and same
+record does not exist in source then delete this record target</p>
+
+<p class=MsoNoSpacing>WHEN NOT MATCHED BY SOURCE </p>
+
+<p class=MsoNoSpacing>THEN DELETE </p>
+
+<p class=MsoNoSpacing>--$action specifies a column of type nvarchar(10) in the
+OUTPUT clause that returns </p>
+
+<p class=MsoNoSpacing>--one of three values for each row: 'INSERT', 'UPDATE',
+or 'DELETE' according to the action that was performed on that row</p>
+
+<p class=MsoNoSpacing>OUTPUT $action, </p>
+
+<p class=MsoNoSpacing>DELETED.ProductID AS TargetProductID, </p>
+
+<p class=MsoNoSpacing>DELETED.ProductName AS TargetProductName, </p>
+
+<p class=MsoNoSpacing>DELETED.Rate AS TargetRate, </p>
+
+<p class=MsoNoSpacing>INSERTED.ProductID AS SourceProductID, </p>
+
+<p class=MsoNoSpacing>INSERTED.ProductName AS SourceProductName, </p>
+
+<p class=MsoNoSpacing>INSERTED.Rate AS SourceRate; </p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>SELECT @@ROWCOUNT;</p>
+
+<p class=MsoNoSpacing>GO</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNormal><span style='color:#111111;background:white'><a
+href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>
