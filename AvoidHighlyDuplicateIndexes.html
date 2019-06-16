@@ -7,9 +7,6 @@
 <!--
  /* Font Definitions */
  @font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;}
-@font-face
 	{font-family:"Cambria Math";
 	panose-1:2 4 5 3 5 4 6 3 2 4;}
 @font-face
@@ -24,7 +21,7 @@
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 h2
@@ -68,6 +65,11 @@ span.HTMLAddressChar
 	mso-style-link:"HTML Address";
 	font-family:"Times New Roman",serif;
 	font-style:italic;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
 span.HTMLPreformattedChar
 	{mso-style-name:"HTML Preformatted Char";
 	mso-style-link:"HTML Preformatted";
@@ -89,7 +91,7 @@ p.msopapdefault, li.msopapdefault, div.msopapdefault
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:12.0pt;
 	font-family:"Times New Roman",serif;}
 span.code-comment
@@ -104,11 +106,6 @@ span.hljs-keyword
 	{mso-style-name:hljs-keyword;}
 span.hljs-string
 	{mso-style-name:hljs-string;}
-span.Heading2Char
-	{mso-style-name:"Heading 2 Char";
-	mso-style-link:"Heading 2";
-	font-family:"Times New Roman",serif;
-	font-weight:bold;}
 span.crayon-k
 	{mso-style-name:crayon-k;}
 span.crayon-h
@@ -126,17 +123,12 @@ span.crayon-s
 	font-family:"Calibri",sans-serif;}
 .MsoPapDefault
 	{margin-bottom:8.0pt;
-	line-height:106%;}
+	line-height:105%;}
 @page WordSection1
 	{size:595.3pt 841.9pt;
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -146,14 +138,14 @@ ul
 
 <div class=WordSection1>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>Avoid Highly Duplicate Indexes</span></b></p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
 <p class=MsoNoSpacing>A highly duplicate index contains a limited number of
-unique values. For example, if you place an index on a column that contains
-only two or three values, that index is highly duplicate.</p>
+unique values. For example, if you place an index on a column that contains only
+two or three values, that index is highly duplicate.</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
@@ -205,7 +197,7 @@ In the previous example, the correct composite index is</p>
 
 <p class=MsoNoSpacing>bonus(account_number, participated) </p>
 
-<p class=MsoNoSpacing>                 </p>
+<p class=MsoNoSpacing>&nbsp;</p>
 
 <p class=MsoNoSpacing>Because the account_number column is more selective than
 the participated column, combining these two columns yields a more selective
@@ -219,7 +211,7 @@ SQL statement must always specify columns in a table from left to right.)</p>
 <p class=MsoNormal><span style='color:#111111;background:white'><a
 href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
 </div>

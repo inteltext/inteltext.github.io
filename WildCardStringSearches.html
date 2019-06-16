@@ -7,9 +7,6 @@
 <!--
  /* Font Definitions */
  @font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;}
-@font-face
 	{font-family:"Cambria Math";
 	panose-1:2 4 5 3 5 4 6 3 2 4;}
 @font-face
@@ -27,7 +24,7 @@
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 h2
@@ -71,6 +68,11 @@ span.HTMLAddressChar
 	mso-style-link:"HTML Address";
 	font-family:"Times New Roman",serif;
 	font-style:italic;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
 span.HTMLPreformattedChar
 	{mso-style-name:"HTML Preformatted Char";
 	mso-style-link:"HTML Preformatted";
@@ -92,7 +94,7 @@ p.msopapdefault, li.msopapdefault, div.msopapdefault
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:12.0pt;
 	font-family:"Times New Roman",serif;}
 span.code-comment
@@ -107,11 +109,6 @@ span.hljs-keyword
 	{mso-style-name:hljs-keyword;}
 span.hljs-string
 	{mso-style-name:hljs-string;}
-span.Heading2Char
-	{mso-style-name:"Heading 2 Char";
-	mso-style-link:"Heading 2";
-	font-family:"Times New Roman",serif;
-	font-weight:bold;}
 span.crayon-k
 	{mso-style-name:crayon-k;}
 span.crayon-h
@@ -129,17 +126,12 @@ span.crayon-s
 	font-family:"Calibri",sans-serif;}
 .MsoPapDefault
 	{margin-bottom:8.0pt;
-	line-height:106%;}
+	line-height:105%;}
 @page WordSection1
 	{size:595.3pt 841.9pt;
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -149,13 +141,14 @@ ul
 
 <div class=WordSection1>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
-font-family:"Century Gothic",sans-serif'>Wildcard String Searches – Should be avoided</span></b></p>
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
+font-family:"Century Gothic",sans-serif'>Wildcard String Searches - Should be
+avoided</span></b></p>
 
 <p style='background:white;vertical-align:baseline'><span style='font-size:
 11.0pt;font-family:"Calibri Light",sans-serif;color:#252525'>SQL Server is not
-good at fuzzy string searching. That is, if I want to detect the presence of a
-string in any position within a column, getting that data will be inefficient:</span></p>
+good at fuzzy string searching. That is, if I want to detect the presence of a string
+in any position within a column, getting that data will be inefficient:</span></p>
 
 <p class=MsoNoSpacing><span style='font-family:"Calibri Light",sans-serif;
 color:#252525'>SELECT</span></p>
@@ -183,11 +176,12 @@ color:#252525'>&nbsp;</span></p>
 
 <p class=MsoNoSpacing><span style='font-family:"Calibri Light",sans-serif;
 color:#252525'>If possible, it is best to avoid the first % as this results in
-every character being matched against the value being searched. </span><span
-style='font-family:"Calibri Light",sans-serif;color:#252525;background:white'>When
-a “%” is placed at the beginning of a string, it makes the use of any ascending
-index impossible. Similarly, when a “%” is at the end of a string, using a
-descending index is also impossible</span>.</span></p>
+every character being matched against the value being searched. <span
+style='background:white'>When a </span>'%'<span style='background:white'> is
+placed at the beginning of a string, it makes the use of any ascending index
+impossible. Similarly, when a </span>'<span style='background:white'>%</span>'<span
+style='background:white'> is at the end of a string, using a descending index
+is also impossible</span></span>.</p>
 
 <p class=MsoNoSpacing><span style='font-family:"Calibri Light",sans-serif;
 color:#252525;background:white'>&nbsp;</span></p>
@@ -208,22 +202,23 @@ the application. Is a wildcard search really needed in this manner? Do users
 really want to search all parts of this column for a given string? If not, get
 rid of this capability and the problem vanishes!</span></p>
 
-<p class=MsoNoSpacing><span style='font-family:"Calibri Light",sans-serif'>Can any
-other filters be applied to the query to reduce the data size prior to
+<p class=MsoNoSpacing><span style='font-family:"Calibri Light",sans-serif'>Can
+any other filters be applied to the query to reduce the data size prior to
 crunching the string comparison? It might be possible to filter by date, time,
 status, or some other commonly used type of criteria, thereby reducing the data
 needed to be scanned down to a small enough amount so that the query perform
 acceptably.</span></p>
 
 <p class=MsoNoSpacing><span style='font-family:"Calibri Light",sans-serif'>Could
-a leading string search be performed instead of a wildcard search? Can “%For%”
-be changed to “For%”?</span></p>
+a leading string search be performed instead of a wildcard search? Can <span
+style='color:#252525'>'</span>%For%<span style='color:#252525'>'</span> be
+changed to <span style='color:#252525'>'</span>For%<span style='color:#252525'>'</span>?</span></p>
 
 <p class=MsoNoSpacing><span style='font-family:"Calibri Light",sans-serif'>Is
 full-text indexing an available option? Can it be implemented and used?</span></p>
 
-<p class=MsoNoSpacing><span style='font-family:"Calibri Light",sans-serif'>Can a
-query hash or n-gram solution be implemented?</span></p>
+<p class=MsoNoSpacing><span style='font-family:"Calibri Light",sans-serif'>Can
+a query hash or n-gram solution be implemented?</span></p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
@@ -234,7 +229,7 @@ query hash or n-gram solution be implemented?</span></p>
 <p class=MsoNormal><span style='color:#111111;background:white'><a
 href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
 </div>

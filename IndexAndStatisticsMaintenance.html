@@ -7,9 +7,6 @@
 <!--
  /* Font Definitions */
  @font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;}
-@font-face
 	{font-family:"Cambria Math";
 	panose-1:2 4 5 3 5 4 6 3 2 4;}
 @font-face
@@ -21,16 +18,13 @@
 @font-face
 	{font-family:"Century Gothic";
 	panose-1:2 11 5 2 2 2 2 2 2 4;}
-@font-face
-	{font-family:"Segoe UI";
-	panose-1:2 11 5 2 4 2 4 2 2 3;}
  /* Style Definitions */
  p.MsoNormal, li.MsoNormal, div.MsoNormal
 	{margin-top:0cm;
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 h2
@@ -74,6 +68,11 @@ span.HTMLAddressChar
 	mso-style-link:"HTML Address";
 	font-family:"Times New Roman",serif;
 	font-style:italic;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
 span.HTMLPreformattedChar
 	{mso-style-name:"HTML Preformatted Char";
 	mso-style-link:"HTML Preformatted";
@@ -95,7 +94,7 @@ p.msopapdefault, li.msopapdefault, div.msopapdefault
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:12.0pt;
 	font-family:"Times New Roman",serif;}
 span.code-comment
@@ -110,11 +109,6 @@ span.hljs-keyword
 	{mso-style-name:hljs-keyword;}
 span.hljs-string
 	{mso-style-name:hljs-string;}
-span.Heading2Char
-	{mso-style-name:"Heading 2 Char";
-	mso-style-link:"Heading 2";
-	font-family:"Times New Roman",serif;
-	font-weight:bold;}
 span.crayon-k
 	{mso-style-name:crayon-k;}
 span.crayon-h
@@ -132,17 +126,12 @@ span.crayon-s
 	font-family:"Calibri",sans-serif;}
 .MsoPapDefault
 	{margin-bottom:8.0pt;
-	line-height:106%;}
+	line-height:105%;}
 @page WordSection1
 	{size:595.3pt 841.9pt;
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -152,14 +141,14 @@ ul
 
 <div class=WordSection1>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>Index and Statistics Maintenance</span></b></p>
 
 <p class=MsoNoSpacing>Indexes need to be rebuilt when the fragmentation levels
 reach a certain point. Fragmentation occurs as a result of normal database use,
-i.e. INSERT, UPDATE and DELETE functions. If the fragmentation is still below an
-acceptable level it is recommended to perform index reorganizations, which cleans
-up the indexes.</p>
+i.e. INSERT, UPDATE and DELETE functions. If the fragmentation is still below
+an acceptable level it is recommended to perform index reorganizations, which
+cleans up the indexes.</p>
 
 <p style='margin-top:8.25pt;margin-right:0cm;margin-bottom:15.75pt;margin-left:
 0cm;background:white'><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;
@@ -173,13 +162,13 @@ font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-str
 text-decoration-style: initial;text-decoration-color: initial;word-spacing:
 0px'><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:black'>Even
 so, these automatic modifications will continuously scatter the information in
-the index throughout the database – fragmenting the index over time. The result
-– indexes now have pages where logical ordering (based on the key value)
+the index throughout the database - fragmenting the index over time. The result
+- indexes now have pages where logical ordering (based on the key value)
 differs from the physical ordering inside the data file. This means that there
 is a high percentage of free space on the index pages, and that SQL Server has
 to read higher number of pages when scanning each index. Also, ordering of
 pages that belong to the same index gets scrambled and this adds more work to
-the SQL Server when reading an index – especially in IO terms.</span></p>
+the SQL Server when reading an index - especially in IO terms.</span></p>
 
 <p style='margin-top:8.25pt;margin-right:0cm;margin-bottom:15.75pt;margin-left:
 0cm;background:white;box-sizing: border-box;font-variant-ligatures: normal;
@@ -187,11 +176,11 @@ font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-str
 text-decoration-style: initial;text-decoration-color: initial;word-spacing:
 0px'><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:black'>The
 Index fragmentation impact on the SQL Server can range from decreased
-efficiency of queries – for servers with low performance impact, all the way to
+efficiency of queries - for servers with low performance impact, all the way to
 the point where SQL Server completely stops using indexes and resorts to the
-last-straw solution – full table scans for each and every query. As mentioned
-before, full table scans will drastically impact SQL Server performance and this
-is final alarm to remedy index fragmentation on the SQL Server.</span></p>
+last-straw solution full table scans for each and every query. As mentioned
+before, full table scans will drastically impact SQL Server performance and
+this is final alarm to remedy index fragmentation on the SQL Server.</span></p>
 
 <p style='margin-top:8.25pt;margin-right:0cm;margin-bottom:15.75pt;margin-left:
 0cm;background:white;box-sizing: border-box;font-variant-ligatures: normal;
@@ -245,22 +234,18 @@ text-decoration-style: initial;text-decoration-color: initial;word-spacing:
 can be easily detected by running the system function&nbsp;<a
 href="https://msdn.microsoft.com/en-us/library/ms188917.aspx" target="_blank"
 style='box-sizing: border-box;outline: none'><span style='color:#337AB7'>sys.dm_db_index_physical_stats</span></a>
-which returns the size and the fragmentation information for the data and indexes
-of tables or views in SQL Server. It can be run only against a specific index
-in the table or view, all indexes in the specific table or view, or vs. all
-indexes in all databases:</span></p>
+which returns the size and the fragmentation information for the data and
+indexes of tables or views in SQL Server. It can be run only against a specific
+index in the table or view, all indexes in the specific table or view, or vs.
+all indexes in all databases:</span></p>
 
 <p style='margin-top:8.25pt;margin-right:0cm;margin-bottom:15.75pt;margin-left:
 0cm;background:white;box-sizing: border-box;font-variant-ligatures: normal;
 font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
 text-decoration-style: initial;text-decoration-color: initial;word-spacing:
-0px'><a
-href="https://solutioncenter.apexsql.com/wp-content/uploads/2015/12/word-image53.png"
-style='box-sizing: border-box;outline: none'><span style='font-size:11.0pt;
-font-family:"Segoe UI",sans-serif;color:#337AB7;text-decoration:none'><img
-border=0 width=1260 height=267 id="Picture 1"
+0px'><img border=0 width=1260 height=267 id="Picture 2"
 src="IndexAndStatisticsMaintenance_files/image001.jpg"
-alt="https://solutioncenter.apexsql.com/wp-content/uploads/2015/12/word-image53.png"></span></a></p>
+alt="https://solutioncenter.apexsql.com/wp-content/uploads/2015/12/word-image53.png"></p>
 
 <p style='margin-top:8.25pt;margin-right:0cm;margin-bottom:15.75pt;margin-left:
 0cm;background:white;box-sizing: border-box;font-variant-ligatures: normal;
@@ -269,23 +254,25 @@ text-decoration-style: initial;text-decoration-color: initial;word-spacing:
 0px'><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:black'>The
 results returned after running the procedures include following information:</span></p>
 
-<p class=MsoNormal style='margin-left:0cm;text-indent:-18.0pt;line-height:normal;
-background:white'><span style='font-size:10.0pt;font-family:Symbol;color:black'>·<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='color:black'>avg_fragmentation_in_percent – average
-percent of incorrect pages in the index</span></p>
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:black'>·</span><span style='font-size:7.0pt;font-family:"Times New Roman",serif;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='color:black'>avg_fragmentation_in_percent - average percent of incorrect
+pages in the index</span></p>
 
-<p class=MsoNormal style='margin-left:0cm;text-indent:-18.0pt;line-height:normal;
-background:white'><span style='font-size:10.0pt;font-family:Symbol;color:black'>·<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='color:black'>fragment_count – number of fragments in
-index</span></p>
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:black'>·</span><span style='font-size:7.0pt;font-family:"Times New Roman",serif;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='color:black'>fragment_count - number of fragments in index</span></p>
 
-<p class=MsoNormal style='margin-left:0cm;text-indent:-18.0pt;line-height:normal;
-background:white'><span style='font-size:10.0pt;font-family:Symbol;color:black'>·<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='color:black'>avg_fragment_size_in_pages – average
-number of pages in one fragment in an index</span></p>
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:black'>·</span><span style='font-size:7.0pt;font-family:"Times New Roman",serif;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='color:black'>avg_fragment_size_in_pages - average number of pages in one
+fragment in an index</span></p>
 
 <h2 style='margin-top:11.25pt;margin-right:0cm;margin-bottom:11.25pt;
 margin-left:0cm;background:white;box-sizing: border-box;font-variant-ligatures: normal;
@@ -320,28 +307,31 @@ there is a generally accepted solution based on the percent of fragmentation
 (avg_fragmentation_in_percent column from the previously described
 sys.dm_db_index_physical_stats function)</span></p>
 
-<p class=MsoNormal style='margin-left:0cm;text-indent:-18.0pt;line-height:normal;
-background:white'><span style='font-size:10.0pt;font-family:Symbol;color:black'>·<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><strong style='box-sizing: border-box'><span style='font-family:
-"Calibri",sans-serif;color:black'>Fragmentation is less than 10%</span></strong><span
-style='color:black'>&nbsp;– no de-fragmentation is required. It is generally accepted
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:black'>·</span><span style='font-size:7.0pt;font-family:"Times New Roman",serif;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong
+style='box-sizing: border-box'><span style='font-family:"Calibri",sans-serif;
+color:black'>Fragmentation is less than 10% - </span></strong><span
+style='color:black'>no de-fragmentation is required. It is generally accepted
 that in majority of environments index fragmentation less than 10% in
 negligible and its performance impact on the SQL Server is minimal.</span></p>
 
-<p class=MsoNormal style='margin-left:0cm;text-indent:-18.0pt;line-height:normal;
-background:white'><span style='font-size:10.0pt;font-family:Symbol;color:black'>·<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><strong style='box-sizing: border-box'><span style='font-family:
-"Calibri",sans-serif;color:black'>Fragmentation is between 10-30%</span></strong><span
-style='color:black'>&nbsp;– it is suggested to perform index reorganization</span></p>
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:black'>·</span><span style='font-size:7.0pt;font-family:"Times New Roman",serif;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong
+style='box-sizing: border-box'><span style='font-family:"Calibri",sans-serif;
+color:black'>Fragmentation is between 10-30% - </span></strong><span
+style='color:black'>it is suggested to perform index reorganization</span></p>
 
-<p class=MsoNormal style='margin-left:0cm;text-indent:-18.0pt;line-height:normal;
-background:white'><span style='font-size:10.0pt;font-family:Symbol;color:black'>·<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><strong style='box-sizing: border-box'><span style='font-family:
-"Calibri",sans-serif;color:black'>Fragmentation is higher than 30%</span></strong><span
-style='color:black'>&nbsp;– it is suggested to perform index rebuild</span></p>
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:black'>·</span><span style='font-size:7.0pt;font-family:"Times New Roman",serif;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong
+style='box-sizing: border-box'><span style='font-family:"Calibri",sans-serif;
+color:black'>Fragmentation is higher than 30%</span></strong><span
+style='color:black'> - it is suggested to perform index rebuild</span></p>
 
 <p style='margin-top:8.25pt;margin-right:0cm;margin-bottom:15.75pt;margin-left:
 0cm;background:white;box-sizing: border-box;font-variant-ligatures: normal;
@@ -376,8 +366,8 @@ down-times that could not be acceptable in some environments.</span></p>
 font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
 text-decoration-style: initial;text-decoration-color: initial;word-spacing:
 0px'><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:black'>With
-this in mind, it is clear that the index rebuild is a process with ‘stronger’
-solution, but it comes with a price – possible long locks on affected indexed
+this in mind, it is clear that the index rebuild is a process with `stronger`
+solution, but it comes with a price - possible long locks on affected indexed
 tables.</span></p>
 
 <p style='margin-top:8.25pt;margin-right:0cm;margin-bottom:15.75pt;margin-left:
@@ -385,8 +375,8 @@ tables.</span></p>
 font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
 text-decoration-style: initial;text-decoration-color: initial;word-spacing:
 0px'><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:black'>On
-the other side, index reorganization is a ‘lightweight’ process that will solve
-the fragmentation in a less effective way – since cleaned index will always be
+the other side, index reorganization is a `lightweight` process that will solve
+the fragmentation in a less effective way - since cleaned index will always be
 second to the new one fully made from scratch. But reorganizing index is much
 better from the efficiency standpoint, since it does not lock affected indexed
 table during the course of operation.</span></p>
@@ -404,7 +394,7 @@ periods.</span></p>
 
 <p class=MsoNoSpacing>An excellent <span style='font-size:9.0pt;font-family:
 "Verdana",sans-serif;color:#333333;background:white'>SQL Server Maintenance
-Solution</span> has been provided by Ola Hallengren. See </span><a
+Solution</span> has been provided by Ola Hallengren. See <a
 href="https://ola.hallengren.com/sql-server-index-and-statistics-maintenance.html">https://ola.hallengren.com/sql-server-index-and-statistics-maintenance.html</a></p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
@@ -414,7 +404,7 @@ href="https://ola.hallengren.com/sql-server-index-and-statistics-maintenance.htm
 <p class=MsoNormal><span style='color:#111111;background:white'><a
 href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
 </div>

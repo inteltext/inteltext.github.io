@@ -24,7 +24,7 @@
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 a:link, span.MsoHyperlink
@@ -82,7 +82,7 @@ p.msopapdefault, li.msopapdefault, div.msopapdefault
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:12.0pt;
 	font-family:"Times New Roman",serif;}
 span.code-comment
@@ -102,7 +102,7 @@ span.hljs-string
 	font-family:"Calibri",sans-serif;}
 .MsoPapDefault
 	{margin-bottom:8.0pt;
-	line-height:106%;}
+	line-height:105%;}
 @page WordSection1
 	{size:595.3pt 841.9pt;
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
@@ -117,8 +117,9 @@ div.WordSection1
 
 <div class=WordSection1>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
-font-family:"Century Gothic",sans-serif'>Pagination Using ROW_NUMBER() and a CTE</span></b></p>
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
+font-family:"Century Gothic",sans-serif'>Pagination Using ROW_NUMBER() and a
+CTE</span></b></p>
 
 <p class=MsoNoSpacing>Pagination is a way of showing results in a set number of
 rows per page. </p>
@@ -127,9 +128,9 @@ rows per page. </p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
 11.25pt'><span style='font-size:10.5pt;font-family:"Tahoma",sans-serif;
-color:#424242'>In the following example, we’re using variables to store No. of
-records per page and a page number. Ideally, on page 1 we should see 1 to 10
-records, on page 2 – 11 to 20 records, page 3 – 21 to 30 records and so on.</span></span></p>
+color:#424242'>In the following example, we’re using variables to store No. of records
+per page and a page number. Ideally, on page 1 we should see 1 to 10 records,
+on page 2 – 11 to 20 records, page 3 – 21 to 30 records and so on.</span></p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
@@ -143,34 +144,34 @@ records, on page 2 – 11 to 20 records, page 3 – 21 to 30 records and so on.</spa
 
 <p class=MsoNoSpacing>(</p>
 
-<p class=MsoNoSpacing>SELECT  row_number() over(order by object_id asc) as
+<p class=MsoNoSpacing>SELECT row_number() over(order by object_id asc) as
 RowNumber, object_id, name</p>
 
-<p class=MsoNoSpacing>FROM    sys.all_columns</p>
+<p class=MsoNoSpacing>FROM sys.all_columns</p>
 
 <p class=MsoNoSpacing>)</p>
 
 <p class=MsoNoSpacing>SELECT *</p>
 
-<p class=MsoNoSpacing>FROM   Pagination_CTE</p>
+<p class=MsoNoSpacing>FROM Pagination_CTE</p>
 
-<p class=MsoNoSpacing>WHERE  RowNumber BETWEEN ((@PageNumber - 1)  *
+<p class=MsoNoSpacing>WHERE RowNumber BETWEEN ((@PageNumber - 1) *
 (@NoOfRecordsPerPage)) + 1 AND (@PageNumber * @NoOfRecordsPerPage);</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
-<p class=MsoNoSpacing>Note : SQL Server 2012 introduced the&nbsp;</span><a
+<p class=MsoNoSpacing>Note : SQL Server 2012 introduced the&nbsp;<u><a
 href="https://www.tech-recipes.com/rx/41630/sql-server-pagination-with-order-by-and-offset-fetch/"
 target="_blank" style='font-variant-ligatures: normal;font-variant-caps: normal;
 orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
-word-spacing:0px'><span style='color:windowtext'>OFFSET-FETCH</span></a><span
+word-spacing:0px'><span style='color:windowtext'>OFFSET ROWS-FETCH</span></a><span
 style='font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
 text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
-text-decoration-color: initial;float:none;word-spacing:0px'>&nbsp;option to simplify
-pagination using queries with improved performance</span>. The simplified SQL
-can be coded as follows:</p>
+text-decoration-color: initial;float:none;word-spacing:0px'> NEXT</u>&nbsp;option
+to simplify pagination using queries with improved performance</span>. The
+simplified SQL can be coded as follows:</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
@@ -181,16 +182,17 @@ can be coded as follows:</p>
 <p class=MsoNoSpacing>&nbsp;</p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'>SELECT   object_id, name</p>
+normal;text-autospace:none'>SELECT object_id, name</p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'>FROM     sys.all_columns</p>
+normal;text-autospace:none'>FROM sys.all_columns</p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
 normal;text-autospace:none'>ORDER BY object_id</p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'>OFFSET (@PageNumber  - 1) * @NoOfRecordsPerPage ROWS</p>
+normal;text-autospace:none'>OFFSET (@PageNumber &nbsp;- 1) *
+@NoOfRecordsPerPage ROWS</p>
 
 <p class=MsoNoSpacing>FETCH NEXT @NoOfRecordsPerPage ROWS ONLY; </p>
 
@@ -205,7 +207,7 @@ normal;text-autospace:none'>OFFSET (@PageNumber  - 1) * @NoOfRecordsPerPage ROWS
 <p class=MsoNormal><span style='color:#111111;background:white'><a
 href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
 </div>

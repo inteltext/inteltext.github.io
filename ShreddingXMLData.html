@@ -21,7 +21,7 @@
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:107%;
+	line-height:106%;
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 a:link, span.MsoHyperlink
@@ -62,6 +62,26 @@ span.HTMLPreformattedChar
 	{mso-style-name:"HTML Preformatted Char";
 	mso-style-link:"HTML Preformatted";
 	font-family:"Courier New";}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
 span.code-comment
 	{mso-style-name:code-comment;}
 span.code-keyword
@@ -71,10 +91,11 @@ span.code-digit
 span.code-string
 	{mso-style-name:code-string;}
 .MsoChpDefault
-	{font-family:"Calibri",sans-serif;}
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
 .MsoPapDefault
 	{margin-bottom:8.0pt;
-	line-height:107%;}
+	line-height:106%;}
 @page WordSection1
 	{size:595.3pt 841.9pt;
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
@@ -89,7 +110,7 @@ div.WordSection1
 
 <div class=WordSection1>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
 font-family:"Century Gothic",sans-serif'>Shredding XML Data</span></b></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
@@ -195,10 +216,12 @@ normal;text-autospace:none'>tab.p.value('FirstName[1]', 'NVARCHAR(100)'),</p>
 normal;text-autospace:none'>tab.p.value('Surname[1]', 'NVARCHAR(100)'),</p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'>tab.p.value('(Nationality/Fullname)[1]', 'NVARCHAR(100)'),</p>
+normal;text-autospace:none'>tab.p.value('(Nationality/Fullname)[1]',
+'NVARCHAR(100)'),</p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;text-autospace:none'>tab.p.value('(Nationality/IsoAlpha2)[1]', 'VARCHAR(2)'),</p>
+normal;text-autospace:none'>tab.p.value('(Nationality/IsoAlpha2)[1]',
+'VARCHAR(2)'),</p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
 normal;text-autospace:none'>GETDATE()</p>
@@ -216,7 +239,7 @@ normal;text-autospace:none'>&nbsp;</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
-<p class=MsoNoSpacing><b>Example 2 of shredding XML Data using path – Two different
+<p class=MsoNoSpacing><b>Example 2 of shredding XML Data using path - different
 methods. Note Method 2, using cross apply, performs far better </b></p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
@@ -377,259 +400,259 @@ Cust_Ord_Count</p>
   <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'>OrderHDR_ID</p>
+  normal'><span style='color:windowtext'>OrderHDR_ID</span></p>
   </td>
   <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'>Cust_ID</p>
+  normal'><span style='color:windowtext'>Cust_ID</span></p>
   </td>
   <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'>OrderDTL_ID</p>
+  normal'><span style='color:windowtext'>OrderDTL_ID</span></p>
   </td>
   <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'>Prod_ID</p>
+  normal'><span style='color:windowtext'>Prod_ID</span></p>
   </td>
   <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'>QTY</p>
+  normal'><span style='color:windowtext'>QTY</span></p>
   </td>
   <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'>Cost</p>
+  normal'><span style='color:windowtext'>Cost</span></p>
   </td>
   <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'>Cust_Ord_Count</p>
+  normal'><span style='color:windowtext'>Cust_Ord_Count</span></p>
   </td>
  </tr>
  <tr style='height:15.0pt'>
   <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>101</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>101</span></p>
   </td>
   <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>501</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>501</span></p>
   </td>
   <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>201</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>201</span></p>
   </td>
   <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>1</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>1</span></p>
   </td>
   <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>5</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>5</span></p>
   </td>
   <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>25.12</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>25.12</span></p>
   </td>
   <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>2</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>2</span></p>
   </td>
  </tr>
  <tr style='height:15.0pt'>
   <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>101</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>101</span></p>
   </td>
   <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>501</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>501</span></p>
   </td>
   <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>202</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>202</span></p>
   </td>
   <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>2</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>2</span></p>
   </td>
   <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>3</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>3</span></p>
   </td>
   <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>30</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>30</span></p>
   </td>
   <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>2</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>2</span></p>
   </td>
  </tr>
  <tr style='height:15.0pt'>
   <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>102</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>102</span></p>
   </td>
   <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>502</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>502</span></p>
   </td>
   <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>203</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>203</span></p>
   </td>
   <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>11</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>11</span></p>
   </td>
   <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>12</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>12</span></p>
   </td>
   <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>140.78</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>140.78</span></p>
   </td>
   <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>1</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>1</span></p>
   </td>
  </tr>
  <tr style='height:15.0pt'>
   <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>103</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>103</span></p>
   </td>
   <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>503</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>503</span></p>
   </td>
   <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>204</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>204</span></p>
   </td>
   <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>6</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>6</span></p>
   </td>
   <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>8</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>8</span></p>
   </td>
   <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>60.35</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>60.35</span></p>
   </td>
   <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>3</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>3</span></p>
   </td>
  </tr>
  <tr style='height:15.0pt'>
   <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>103</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>103</span></p>
   </td>
   <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>503</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>503</span></p>
   </td>
   <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>205</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>205</span></p>
   </td>
   <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>9</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>9</span></p>
   </td>
   <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>2</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>2</span></p>
   </td>
   <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>10.5</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>10.5</span></p>
   </td>
   <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>3</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>3</span></p>
   </td>
  </tr>
  <tr style='height:15.0pt'>
   <td width=89 nowrap valign=bottom style='width:67.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>103</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>103</span></p>
   </td>
   <td width=55 nowrap valign=bottom style='width:41.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>503</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>503</span></p>
   </td>
   <td width=79 nowrap valign=bottom style='width:59.5pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>206</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>206</span></p>
   </td>
   <td width=56 nowrap valign=bottom style='width:42.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>10</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>10</span></p>
   </td>
   <td width=31 nowrap valign=bottom style='width:23.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>6</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>6</span></p>
   </td>
   <td width=49 nowrap valign=bottom style='width:37.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>120.89</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>120.89</span></p>
   </td>
   <td width=109 nowrap valign=bottom style='width:82.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:15.0pt'>
   <p class=MsoNormal align=right style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal'>3</p>
+  text-align:right;line-height:normal'><span style='color:windowtext'>3</span></p>
   </td>
  </tr>
 </table>
@@ -645,7 +668,7 @@ Cust_Ord_Count</p>
 <p class=MsoNormal><span style='color:#111111;background:white'><a
 href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
 font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
 </div>

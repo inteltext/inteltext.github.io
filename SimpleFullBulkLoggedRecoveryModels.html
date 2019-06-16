@@ -7,9 +7,6 @@
 <!--
  /* Font Definitions */
  @font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;}
-@font-face
 	{font-family:"Cambria Math";
 	panose-1:2 4 5 3 5 4 6 3 2 4;}
 @font-face
@@ -24,7 +21,7 @@
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 h2
@@ -68,6 +65,11 @@ span.HTMLAddressChar
 	mso-style-link:"HTML Address";
 	font-family:"Times New Roman",serif;
 	font-style:italic;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
 span.HTMLPreformattedChar
 	{mso-style-name:"HTML Preformatted Char";
 	mso-style-link:"HTML Preformatted";
@@ -89,7 +91,7 @@ p.msopapdefault, li.msopapdefault, div.msopapdefault
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:12.0pt;
 	font-family:"Times New Roman",serif;}
 span.code-comment
@@ -104,11 +106,6 @@ span.hljs-keyword
 	{mso-style-name:hljs-keyword;}
 span.hljs-string
 	{mso-style-name:hljs-string;}
-span.Heading2Char
-	{mso-style-name:"Heading 2 Char";
-	mso-style-link:"Heading 2";
-	font-family:"Times New Roman",serif;
-	font-weight:bold;}
 span.crayon-k
 	{mso-style-name:crayon-k;}
 span.crayon-h
@@ -126,17 +123,12 @@ span.crayon-s
 	font-family:"Calibri",sans-serif;}
 .MsoPapDefault
 	{margin-bottom:8.0pt;
-	line-height:106%;}
+	line-height:105%;}
 @page WordSection1
 	{size:595.3pt 841.9pt;
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -146,7 +138,7 @@ ul
 
 <div class=WordSection1>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>SIMPLE, FULL and BULK logged Recovery
 Models</span></b></p>
 
@@ -159,9 +151,9 @@ operations are based on one of three available recovery models:</p>
 
 <p class=MsoNoSpacing><b>FULL</b></p>
 
-<p class=MsoNoSpacing><b>BULK_Logged</b>                    </p>
+<p class=MsoNoSpacing><b>BULK_Logged</b></p>
 
-<p class=MsoNoSpacing>&nbsp;</p>
+<p class=MsoNoSpacing><b>&nbsp;</b></p>
 
 <p class=MsoNoSpacing>A recovery model is a database configuration option that
 determines the type of backup that one could perform, and provides the ability
@@ -276,10 +268,10 @@ optionally, read-only filegroups.</p>
 
 <p class=MsoNoSpacing><b>BULK_LOGGED</b></p>
 
-<p class=MsoNoSpacing>It’s a special purpose database configuration option and
+<p class=MsoNoSpacing>It is a special purpose database configuration option and
 it works similar to FULL recovery model except that certain bulk operations can
 be minimally logged. The transaction log file uses a technique known as minimal
-logging for bulk operations. The catch is that it’s not possible to restore
+logging for bulk operations. The catch is that it is not possible to restore
 specific point-in-time data.</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
@@ -310,8 +302,10 @@ specific point-in-time data.</p>
 
 <p class=MsoNoSpacing>Transaction log internals</p>
 
-<p class=MsoNoSpacing>It’s worth taking the time to understand the internals of
-the SQL Server transaction log.</p>
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>It is worth taking the time to understand the internals
+of the SQL Server transaction log.</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
@@ -321,18 +315,19 @@ of every operation is logged in the transaction log file</p>
 <p class=MsoNoSpacing>The transaction log backup ensures transactional
 durability and data consistency using a mechanism known as WAL
 (Write-Ahead-Logging). The transactions that occur on the database first get
-registered into the transaction log file and then the data is written to the
-disk. This facilitates the SQL Server to rollback or roll-forward every step of
-the recovery process</p>
+registered into the transaction log file and then the data is written to the disk.
+This facilitates the SQL Server to rollback or roll-forward every step of the
+recovery process</p>
 
 <p class=MsoNoSpacing>Enables point-in-time restore of databases</p>
 
 <p class=MsoNoSpacing>SQL Server always writes to the transaction log file
-sequentially. It’s cyclic in nature. The transaction log file is further divided
-into log blocks which are logically mapped using VLF’s (Virtual Log Files)</p>
+sequentially. It is cyclic in nature. The transaction log file is further
+divided into log blocks which are logically mapped using VLFs (Virtual Log
+Files)</p>
 
 <p class=MsoNoSpacing>The log records in the blocks that are no longer needed
-are deemed as “inactive,” and this portion of the log blocks can be truncated,
+are deemed as `nactive`, and this portion of the log blocks can be truncated,
 i.e., the inactive segments of the log blocks are overwritten by new
 transactions. These segments or portion of the log file are known as virtual
 log files (VLFs)</p>
@@ -342,21 +337,21 @@ which this truncation can occur depends on the recovery model of the database</p
 
 <p class=MsoNoSpacing>In the SIMPLE recovery model, truncation can take place
 immediately upon the occurrence of a CHECKPOINT operation. Pages in the data
-cache are flushed to the disk, having first “hardened” the changes to the log
+cache are flushed to the disk, having first `hardened` the changes to the log
 file. The space in any VLFs that becomes inactive as a result, and is made
 available for reuse</p>
 
-<p class=MsoNoSpacing>A database may have multiple log files but it’s mandatory
-to have at least one. It will only ever write to one log file at a time, and
-having more than one files will not boost write-throughput or speed. In fact,
-having more multiple files could result in performance degradation, if each
-file is not correctly sized or differs in size. Any mismatch leads to longer
-duration of recovery of the database</p>
+<p class=MsoNoSpacing>A database may have multiple log files but it is
+mandatory to have at least one. It will only ever write to one log file at a
+time, and having more than one files will not boost write-throughput or speed.
+In fact, having more multiple files could result in performance degradation, if
+each file is not correctly sized or differs in size. Any mismatch leads to
+longer duration of recovery of the database</p>
 
-<p class=MsoNoSpacing>For business-critical databases, it is recommended to initiate
-full database backups, followed by a series of frequent transaction log
-backups, followed by another full backup, and so on. As part of the database
-restore operation, we can restore the most recent full backup (plus
+<p class=MsoNoSpacing>For business-critical databases, it is recommended to
+initiate full database backups, followed by a series of frequent transaction
+log backups, followed by another full backup, and so on. As part of the
+database restore operation, we can restore the most recent full backup (plus
 differentials, if taken), followed by the chain of available log file backups,
 up to the one covering the point in time to which we wish to restore the
 database </p>
@@ -374,8 +369,8 @@ database </p>
 <p class=MsoNoSpacing>No transaction log backups.</p>
 
 <p class=MsoNoSpacing>In the Simple Recovery Model, the transaction log is
-automatically purged and the file size is kept intact. Because of this, you
-can’t make log backups in this case.</p>
+automatically purged and the file size is kept intact. Because of this, you cannot
+make log backups in this case.</p>
 
 <p class=MsoNoSpacing>Supports only full and bulk_logged backup operations.</p>
 
@@ -408,7 +403,7 @@ restore. </p>
 
 <p class=MsoNoSpacing>This is possible by first restoring a full backup, most
 recent differential then replaying the changes recorded in the transaction log.
-If a differential backup doesn’t exist, then the series of t-logs are applied.</p>
+If a differential backup does not exist, then the series of t-logs are applied.</p>
 
 <p class=MsoNoSpacing>Supports Point-in-time data recovery.</p>
 
@@ -460,7 +455,7 @@ satisfied: </p>
 
 <p class=MsoNoSpacing>Users are currently not allowed in the database. </p>
 
-<p class=MsoNoSpacing>If you’re able to re-running the bulk processes.</p>
+<p class=MsoNoSpacing>If you are able to re-running the bulk processes.</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
@@ -498,14 +493,15 @@ available) database backup</p>
 
 <p class=MsoNoSpacing>Disable the transaction log backup job</p>
 
-<p class=MsoNoSpacing>Ensure that there is a job to take full backup        </p>
+<p class=MsoNoSpacing>Ensure that there is a job to take full
+backup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
 <p class=MsoNormal><span style='color:#111111;background:white'><a
 href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
 </div>

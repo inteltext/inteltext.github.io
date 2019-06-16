@@ -15,9 +15,6 @@
 @font-face
 	{font-family:"Century Gothic";
 	panose-1:2 11 5 2 2 2 2 2 2 4;}
-@font-face
-	{font-family:inherit;
-	panose-1:0 0 0 0 0 0 0 0 0 0;}
  /* Style Definitions */
  p.MsoNormal, li.MsoNormal, div.MsoNormal
 	{margin-top:0cm;
@@ -119,6 +116,8 @@ span.crayon-sy
 	{mso-style-name:crayon-sy;}
 span.crayon-o
 	{mso-style-name:crayon-o;}
+span.crayon-s
+	{mso-style-name:crayon-s;}
 .MsoChpDefault
 	{font-size:10.0pt;
 	font-family:"Calibri",sans-serif;}
@@ -140,97 +139,14 @@ div.WordSection1
 <div class=WordSection1>
 
 <p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
-font-family:"Century Gothic",sans-serif'>OR in Joins or WHERE Predicates -
-Should be avoided</span></b></p>
+font-family:"Century Gothic",sans-serif'>List Databases in a Database</span></b></p>
 
-<p class=MsoNormal style='line-height:normal;background:white;vertical-align:
-baseline'><span style='color:#252525'>SQL Server can efficiently filter a data
-set using indexes via the WHERE clause or any combination of filters that are separated
-by an AND operator. By being exclusive, these operations take data and slice it
-into progressively smaller pieces, until only our result set remains.</span></p>
-
-<p class=MsoNormal style='line-height:normal;background:white;vertical-align:
-baseline'><span style='color:#252525'>OR is a different story. Because it is
-inclusive, SQL Server cannot process it in a single operation. Instead, each
-component of the OR must be evaluated independently. When this expensive
-operation is completed, the results can then be concatenated and returned
-normally.</span></p>
-
-<p class=MsoNormal style='line-height:normal;background:white;vertical-align:
-baseline'><span style='color:#252525'>The scenario in which OR performs worst
-is when multiple columns or tables are involved. We not only need to evaluate
-each component of the OR clause, but need to follow that path through the other
-filters and tables within the query. Even if only a few tables or columns are
-involved, the performance can become mind-bogglingly bad.</span></p>
-
-<p class=MsoNormal style='line-height:normal;background:white;vertical-align:
-baseline'><b><span style='color:#252525'>Example of a poorly performing query
-using OR in a JOIN:</span></b></p>
-
-<p class=MsoNoSpacing>SELECT DISTINCT</p>
-
-<p class=MsoNoSpacing>PRODUCT.ProductID,</p>
-
-<p class=MsoNoSpacing>PRODUCT.Name</p>
-
-<p class=MsoNoSpacing>FROM Production.Product PRODUCT</p>
-
-<p class=MsoNoSpacing>INNER JOIN Sales.SalesOrderDetail DETAIL</p>
-
-<p class=MsoNoSpacing>ON PRODUCT.ProductID = DETAIL.ProductID</p>
-
-<p class=MsoNoSpacing>OR PRODUCT.rowguid = DETAIL.rowguid;</p>
+<p class=MsoNoSpacing>This has proved to be one of the all-time most useful
+script when analysing the database.</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
-<p class=MsoNormal style='line-height:normal;background:white;vertical-align:
-baseline'><span style='color:#252525'>SQL Server cannot easily process an OR
-condition across multiple columns. The best way to deal with an OR is to
-eliminate it (if possible) or break it into smaller queries. Breaking a short
-and simple query into a longer, more drawn-out query may not seem elegant, but
-when dealing with OR problems, it is often the best choice:</span></p>
-
-<p class=MsoNoSpacing>SELECT</p>
-
-<p class=MsoNoSpacing>PRODUCT.ProductID,</p>
-
-<p class=MsoNoSpacing>PRODUCT.Name</p>
-
-<p class=MsoNoSpacing>FROM Production.Product PRODUCT</p>
-
-<p class=MsoNoSpacing>INNER JOIN Sales.SalesOrderDetail DETAIL</p>
-
-<p class=MsoNoSpacing>ON PRODUCT.ProductID = DETAIL.ProductID</p>
-
-<p class=MsoNoSpacing>&nbsp;</p>
-
-<p class=MsoNoSpacing>UNION</p>
-
-<p class=MsoNoSpacing>&nbsp;</p>
-
-<p class=MsoNoSpacing>SELECT</p>
-
-<p class=MsoNoSpacing>PRODUCT.ProductID,</p>
-
-<p class=MsoNoSpacing>PRODUCT.Name</p>
-
-<p class=MsoNoSpacing>FROM Production.Product PRODUCT</p>
-
-<p class=MsoNoSpacing>INNER JOIN Sales.SalesOrderDetail DETAIL</p>
-
-<p class=MsoNoSpacing>ON PRODUCT.rowguid = DETAIL.rowguid</p>
-
-<table class=MsoNormalTable border=0 cellpadding=0 style='margin-left:-.75pt'>
- <tr>
-  <td width=309 style='width:231.75pt;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  200%;vertical-align:baseline;word-break:break-all'><span style='font-size:
-  9.0pt;line-height:200%;font-family:"inherit",serif;color:windowtext'>&nbsp;</span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNoSpacing>&nbsp;</p>
+<p class=MsoNoSpacing>select [name] as [database_name] from sys.databases</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 

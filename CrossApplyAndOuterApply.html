@@ -7,12 +7,6 @@
 <!--
  /* Font Definitions */
  @font-face
-	{font-family:Helvetica;
-	panose-1:2 11 6 4 2 2 2 2 2 4;}
-@font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;}
-@font-face
 	{font-family:"Cambria Math";
 	panose-1:2 4 5 3 5 4 6 3 2 4;}
 @font-face
@@ -27,7 +21,7 @@
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 h2
@@ -71,6 +65,11 @@ span.HTMLAddressChar
 	mso-style-link:"HTML Address";
 	font-family:"Times New Roman",serif;
 	font-style:italic;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
 span.HTMLPreformattedChar
 	{mso-style-name:"HTML Preformatted Char";
 	mso-style-link:"HTML Preformatted";
@@ -92,7 +91,7 @@ p.msopapdefault, li.msopapdefault, div.msopapdefault
 	margin-right:0cm;
 	margin-bottom:8.0pt;
 	margin-left:0cm;
-	line-height:106%;
+	line-height:105%;
 	font-size:12.0pt;
 	font-family:"Times New Roman",serif;}
 span.code-comment
@@ -107,27 +106,17 @@ span.hljs-keyword
 	{mso-style-name:hljs-keyword;}
 span.hljs-string
 	{mso-style-name:hljs-string;}
-span.Heading2Char
-	{mso-style-name:"Heading 2 Char";
-	mso-style-link:"Heading 2";
-	font-family:"Times New Roman",serif;
-	font-weight:bold;}
 .MsoChpDefault
 	{font-size:10.0pt;
 	font-family:"Calibri",sans-serif;}
 .MsoPapDefault
 	{margin-bottom:8.0pt;
-	line-height:106%;}
+	line-height:105%;}
 @page WordSection1
 	{size:595.3pt 841.9pt;
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -137,7 +126,7 @@ ul
 
 <div class=WordSection1>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>CROSS APPLY and OUTER APPLY</span></b></p>
 
 <p class=MsoNormal style='line-height:normal;background:white'><b><span
@@ -164,8 +153,8 @@ expression.</span></p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
-<p class=MsoNoSpacing><span style='background:white'>Although the same can be
-achieved with a&nbsp;</span><a
+<p class=MsoNoSpacing><span style='background:white'>Although the same can be achieved
+with a&nbsp;</span><a
 href="https://www.mssqltips.com/sqlservertip/1667/sql-server-join-example/"
 target="_blank"><span style='color:windowtext;background:white;text-decoration:
 none'>normal JOIN</span></a><span style='background:white'>, the need of APPLY
@@ -180,7 +169,8 @@ none'>performance</span></a><span style='background:white'>&nbsp;of the query.</
 <h2 style='background:white'><span style='font-size:12.0pt;font-family:"Century Gothic",sans-serif'>Joining
 table valued functions and tables using APPLY operators</span></h2>
 
-<p class=MsoNoSpacing>Example: (SQL Server 2012 – Database : AdventureWorks2012)</p>
+<p class=MsoNoSpacing>Example: (SQL Server 2012 - Database :
+AdventureWorks2012)</p>
 
 <p class=MsoNoSpacing>&nbsp;</p>
 
@@ -198,7 +188,7 @@ OBJECT_ID(N'[fn_GetAllEmployeeOfADepartment]') AND type IN (N'IF')) </p>
 <p class=MsoNoSpacing>&nbsp;</p>
 
 <p class=MsoNoSpacing>CREATE FUNCTION
-dbo.fn_GetAllEmployeeOfADepartment(@SalesTerritoryKey AS INT)  </p>
+dbo.fn_GetAllEmployeeOfADepartment(@SalesTerritoryKey AS INT)</p>
 
 <p class=MsoNoSpacing>RETURNS TABLE </p>
 
@@ -220,8 +210,8 @@ dbo.fn_GetAllEmployeeOfADepartment(@SalesTerritoryKey AS INT)  </p>
 
 <p class=MsoNoSpacing>SELECT * FROM [dbo].[DimDepartmentGroup] D </p>
 
-<p class=MsoNoSpacing>CROSS APPLY
-dbo.fn_GetAllEmployeeOfADepartment(D.[DepartmentGroupKey]) </p>
+<p class=MsoNoSpacing>CROSS APPLY dbo.fn_GetAllEmployeeOfADepartment(D.[DepartmentGroupKey])
+</p>
 
 <p class=MsoNoSpacing>GO</p>
 
@@ -239,7 +229,7 @@ dbo.fn_GetAllEmployeeOfADepartment(D.[DepartmentGroupKey]) </p>
 <p class=MsoNormal><span style='color:#111111;background:white'><a
 href="https://inteltext.github.io/index.html">Return to Index Page</a></span></p>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:106%;
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:105%;
 font-family:"Century Gothic",sans-serif'>&nbsp;</span></b></p>
 
 </div>
